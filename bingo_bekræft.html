@@ -116,22 +116,36 @@
     </p>
   </div>
 
-  <script>
-    const form = document.getElementById('pladeForm');
-    const success = document.getElementById('successMsg');
+<script>
+const form = document.getElementById('pladeForm');
+const success = document.getElementById('successMsg');
 
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      success.style.display = 'block';
+form.addEventListener('submit', async e => {
+  e.preventDefault();
+  success.style.display = 'block';
 
-      const email = form.email.value;
-      // Her skal der kaldes Google Apps Script endpoint med email
-      // og redirecte til fx `plade.html?email=email`
+  const email = form.email.value;
 
-      setTimeout(() => {
-        window.location.href = `plade.html?email=${encodeURIComponent(email)}`;
-      }, 1000);
+  try {
+    const response = await fetch('/.netlify/functions/claim-plate', {
+      method: 'POST',
+      body: JSON.stringify({ email }),
     });
-  </script>
+
+    const result = await response.json();
+
+    if (response.ok && result.plate_id) {
+      window.location.href = `plade.html?plate_id=${result.plate_id}`;
+    } else {
+      alert('Fejl: ' + (result.error || 'Kunne ikke hente plade'));
+      success.style.display = 'none';
+    }
+  } catch (err) {
+    alert('Der skete en fejl. Prøv igen senere.');
+    success.style.display = 'none';
+  }
+});
+</script>
+
 </body>
 </html>
