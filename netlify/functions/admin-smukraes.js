@@ -5,7 +5,7 @@ exports.handler = async (event) => {
     if (event.httpMethod === 'GET') {
         try {
             const result = await pool.query(
-                'SELECT id, team_name, captain, reason, phone, created_at FROM smukraes_entries ORDER BY created_at DESC'
+                'SELECT id, holdnavn, kontakt, ekstrainfo, created_at FROM smukraes_signups ORDER BY created_at DESC'
             );
             return {
                 statusCode: 200,
