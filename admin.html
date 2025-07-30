@@ -33,6 +33,14 @@
     th {
       background: #e6f4ea;
     }
+    button.delete-btn {
+      background: #dc2626;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -46,7 +54,7 @@
   <option value="smukraes">Smukræs</option>
 </select>
 
-<input type="text" id="search" placeholder="Søg efter holdnavn eller spiller...">
+<input type="text" id="search" placeholder="Søg efter noget...">
 
 <table id="tilmeldinger">
   <thead>
@@ -58,21 +66,18 @@
 <a href="index.html" class="back-button">← Tilbage til forsiden</a>
 
 <script>
-const sheets = {
+const config = {
   spikeball: {
-    id: "10Q4oyeAnueRuxBoRn0-r5C_m8V59z9J8qoB5uARtYrw",
-    name: "Spikeball tilmeldinger",
-    columns: ["Holdnavn", "Spiller 1", "Spiller 2", "Tlf"]
+    columns: ["id", "team_name", "player_1", "player_2", "phone"],
+    endpoint: "/.netlify/functions/admin-spikeball"
   },
   hoevdingebold: {
-    id: "1Z4PUsRVsemYMue7dGeR6Dl5bLBQqNdjfe9oaaiwSVZk",
-    name: "Høvdingebold",
-    columns: ["Holdnavn", "Kaptajn", "Spillere", "Tlf"]
+    columns: ["id", "team_name", "player_count", "phone"],
+    endpoint: "/.netlify/functions/admin-hovdingebold"
   },
   smukraes: {
-    id: "1-x5ZvShvj5-A4Y5gDW4ZNp4gfsilR93mNmVzt7vGyag",
-    name: "Smukræs ansøgninger",
-    columns: ["Holdnavn", "Kaptajn", "Begrundelse", "Tlf"]
+    columns: ["id", "team_name", "captain", "justification", "phone"],
+    endpoint: "/.netlify/functions/admin-smukraes"
   }
 };
 
@@ -81,26 +86,41 @@ const tbody = document.querySelector("tbody");
 const headerRow = document.getElementById("headerRow");
 const searchInput = document.getElementById("search");
 
-function loadData(eventKey) {
-  const { id, name, columns } = sheets[eventKey];
-  const query = encodeURIComponent("SELECT " + columns.map((_, i) => String.fromCharCode(65 + i)).join(", "));
-  const url = `https://docs.google.com/spreadsheets/d/${id}/gviz/tq?sheet=${encodeURIComponent(name)}&tq=${query}`;
+async function loadData(eventKey) {
+  const { columns, endpoint } = config[eventKey];
 
-  fetch(url)
-    .then(res => res.text())
-    .then(text => {
-      const json = JSON.parse(text.substring(47).slice(0, -2));
-      const rows = json.table.rows;
+  const res = await fetch(endpoint);
+  const rows = await res.json();
 
-      headerRow.innerHTML = columns.map(col => `<th>${col}</th>`).join("");
-      tbody.innerHTML = "";
+  // Sæt tabel-header
+  headerRow.innerHTML = columns.map(c => `<th>${c}</th>`).join("") + "<th>Slet</th>";
 
-      rows.forEach(row => {
-        const tr = document.createElement("tr");
-        tr.innerHTML = row.c.map(cell => `<td>${cell?.v || ""}</td>`).join("");
-        tbody.appendChild(tr);
-      });
-    });
+  // Sæt rækker
+  tbody.innerHTML = "";
+  rows.forEach(row => {
+    const tr = document.createElement("tr");
+    tr.dataset.id = row.id;
+    tr.innerHTML = columns.map(col => `<td>${row[col] || ""}</td>`).join("");
+    tr.innerHTML += `<td><button class="delete-btn" onclick="deleteRow('${eventKey}', ${row.id})">Slet</button></td>`;
+    tbody.appendChild(tr);
+  });
+}
+
+async function deleteRow(eventKey, id) {
+  const endpoint = config[eventKey].endpoint;
+  if (!confirm("Er du sikker på, at du vil slette denne tilmelding?")) return;
+
+  const res = await fetch(endpoint, {
+    method: "DELETE",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ id })
+  });
+
+  if (res.ok) {
+    document.querySelector(`tr[data-id="${id}"]`)?.remove();
+  } else {
+    alert("Fejl ved sletning");
+  }
 }
 
 searchInput.addEventListener("input", function () {
@@ -110,12 +130,11 @@ searchInput.addEventListener("input", function () {
   });
 });
 
-eventSelect.addEventListener("change", () => {
-  loadData(eventSelect.value);
-});
+eventSelect.addEventListener("change", () => loadData(eventSelect.value));
 
 // Start med spikeball
 loadData("spikeball");
 </script>
+
 </body>
 </html>
