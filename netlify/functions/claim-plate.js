@@ -27,8 +27,9 @@ exports.handler = async (event) => {
 
     // Find en ledig plade
     const available = await pool.query(
-      `SELECT plate_id FROM bingo_plates WHERE claimed_by_email IS NULL LIMIT 1`
+      `SELECT plate_id FROM bingo_plates WHERE claimed_by_email IS NULL ORDER BY RANDOM() LIMIT 1`
     );
+
 
     if (available.rows.length === 0) {
       return { statusCode: 409, body: 'Alle plader er allerede uddelt.' };
