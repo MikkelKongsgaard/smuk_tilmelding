@@ -212,31 +212,43 @@
   </p>
 
 
-  <script>
+<script>
   const form = document.getElementById('tilmeldingForm');
   const success = document.getElementById('successMsg');
   const button = form.querySelector('button');
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbyMEh9H0GaTLQ8OC6ihVzIb1TX_pS701zoKUKXclobAzClxwlaydB36UD1YCc8GuqfBXw/exec';
 
-
-  form.addEventListener('submit', e => {
+  form.addEventListener('submit', async e => {
     e.preventDefault();
 
-    // Disable knappen og skift tekst
     button.disabled = true;
     button.textContent = 'Sender...';
 
-    fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-      .then(() => {
-        window.location.href = "tak.html"; // 👈 Redirect til kvitteringsside
-      })
-      .catch(() => {
-        alert("Der opstod en fejl – prøv igen.");
-        button.disabled = false;
-        button.textContent = 'Send tilmelding';
+    const formData = {
+      team_name: form.Holdnavn.value,
+      player_count: form.AntalSpillere.value,
+      phone: form.Tlf.value
+    };
+
+    try {
+      const res = await fetch('/.netlify/functions/submit-hovdingebold', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
       });
+
+      if (res.ok) {
+        window.location.href = 'tak.html';
+      } else {
+        throw new Error('Fejl ved tilmelding');
+      }
+    } catch (err) {
+      alert("Der opstod en fejl – prøv igen.");
+      button.disabled = false;
+      button.textContent = 'Send tilmelding';
+    }
   });
 </script>
+
 
 
 </body>

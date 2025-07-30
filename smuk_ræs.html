@@ -4,11 +4,8 @@
   <meta charset="UTF-8">
   <title>SMUKRÆS Ansøgning</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- Performance optimizations -->
   <meta name="description" content="Ansøg til SMUKRÆS - Mario Kart-inspireret stafet på Smukfest. Fredag 13:00-14:00 med mooncars og konfetti.">
-  
-  <!-- Preload critical resources -->
+
   <link rel="preload" href="./fonts/Geomanist-Regular.otf" as="font" type="font/otf" crossorigin>
   <link rel="preload" href="./fonts/Geomanist-Bold.otf" as="font" type="font/otf" crossorigin>
   <link rel="preload" href="assets/Kulørte_Lamper_01.png" as="image">
@@ -21,21 +18,18 @@
       font-weight: 400;
       font-display: swap;
     }
-
     @font-face {
       font-family: 'Geomanist';
       src: url('./fonts/Geomanist-Bold.otf') format('opentype');
       font-weight: 700;
       font-display: swap;
     }
-
     :root {
       --smuk-green: #037D51;
       --smuk-dust: #F1E1D6;
       --smuk-dark: #1B603D;
       --smuk-accent: #F4940A;
     }
-
     body {
       background-color: var(--smuk-dust);
       background-image:
@@ -52,18 +46,13 @@
       line-height: 1.6;
       min-height: 100vh;
       box-sizing: border-box;
-      /* Performance optimizations */
-      will-change: auto;
-      transform: translateZ(0);
     }
-
     h1 {
       font-size: 2.2em;
       font-weight: 900;
       color: var(--smuk-green);
       margin-bottom: 0.3em;
     }
-
     h2 {
       font-size: 1.5em;
       font-weight: 700;
@@ -72,15 +61,12 @@
       padding-bottom: 0.2em;
       margin-top: 2em;
     }
-
     label {
       display: block;
       margin-top: 1.2em;
       font-weight: 500;
-      color: var(--smuk-dark);
     }
-
-    input {
+    input, textarea {
       background: #ffffff;
       color: var(--smuk-dark);
       padding: 0.75em;
@@ -89,20 +75,15 @@
       width: 100%;
       box-sizing: border-box;
       font-family: 'Geomanist', sans-serif;
-      font-weight: 400;
       font-size: 1em;
-      transition: border-color 0.3s ease, box-shadow 0.3s ease;
       margin-top: 0.3em;
-      /* Performance optimization */
-      will-change: border-color, box-shadow;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
     }
-
-    input:focus {
-      outline: none;
+    input:focus, textarea:focus {
       border-color: var(--smuk-green);
       box-shadow: 0 0 0 3px rgba(74, 103, 65, 0.1);
+      outline: none;
     }
-
     button {
       background: var(--smuk-green);
       color: white;
@@ -116,24 +97,17 @@
       margin-top: 2em;
       transition: all 0.3s ease;
       box-shadow: 0 4px 12px rgba(74, 103, 65, 0.3);
-      /* Performance optimization */
-      will-change: background, transform, box-shadow;
     }
-
     button:hover {
       background: var(--smuk-dark);
       transform: translateY(-2px);
       box-shadow: 0 6px 20px rgba(74, 103, 65, 0.4);
     }
-
     button:disabled {
       background: var(--smuk-dust);
       color: var(--smuk-dark);
       cursor: not-allowed;
-      transform: none;
-      box-shadow: none;
     }
-
     .success {
       margin-top: 1.2em;
       padding: 0.8em;
@@ -143,7 +117,6 @@
       font-weight: 500;
       display: none;
     }
-
     a {
       display: inline-block;
       margin-top: 2em;
@@ -154,37 +127,13 @@
       border-radius: 6px;
       font-weight: 600;
       transition: background 0.3s ease;
-      /* Performance optimization */
-      will-change: background;
     }
-
     a:hover {
       background: var(--smuk-dark);
     }
-
-    textarea {
-      width: 100%;
-      padding: 0.75em;
-      border-radius: 8px;
-      border: 2px solid var(--smuk-dust);
-      font-family: 'Geomanist', sans-serif;
-      font-size: 1em;
-      margin-top: 0.3em;
-      box-sizing: border-box;
-      transition: border-color 0.3s ease, box-shadow 0.3s ease;
-      will-change: border-color, box-shadow;
-    }
-
-    textarea:focus {
-      outline: none;
-      border-color: var(--smuk-green);
-      box-shadow: 0 0 0 3px rgba(74, 103, 65, 0.1);
-    }
-
   </style>
 </head>
 <body>
-
   <h1>SMUKRÆS – Oasen</h1>
   <p><strong>Tidspunkt:</strong> Fredag 13:00–14:00</p>
   <p>
@@ -192,26 +141,20 @@
     Hold kæmper i heats gennem forhindringer og publikumkaos for ære, præmier – og maksimal festivalstemning!
   </p>
 
-    <h2>🚀 Ansøg for dit hold</h2>
-    <form id="ansøgningForm">
+  <h2>🚀 Ansøg for dit hold</h2>
+  <form id="ansøgningForm">
     <label>Holdnavn:
-        <input type="text" name="Holdnavn" required>
+      <input type="text" name="Holdnavn" required>
     </label>
-
     <label>Kontaktperson (telefonnummer):
-        <input type="tel" name="Kontakt" required>
+      <input type="tel" name="Kontakt" required>
     </label>
-
-    <label>Ekstra info om holdet (kostume, musik, tema osv.):
-        <textarea name="EkstraInfo" rows="4" style="width: 100%; padding: 0.75em; border-radius: 8px; border: 2px solid var(--smuk-dust); font-family: 'Geomanist', sans-serif; font-size: 1em; margin-top: 0.3em; transition: border-color 0.3s ease, box-shadow 0.3s ease; will-change: border-color, box-shadow;" 
-        onfocus="this.style.borderColor='var(--smuk-green)'; this.style.boxShadow='0 0 0 3px rgba(74, 103, 65, 0.1)';"
-        onblur="this.style.borderColor='var(--smuk-dust)'; this.style.boxShadow='none';"></textarea>
+    <label>Ekstra info om holdet:
+      <textarea name="EkstraInfo" rows="4"></textarea>
     </label>
-
     <button type="submit">Send ansøgning</button>
     <p class="success" id="successMsg">✔ Ansøgning modtaget!</p>
-    </form>
-
+  </form>
 
   <p>
     <a href="index.html">← Tilbage til startside</a>
@@ -221,23 +164,29 @@
     const form = document.getElementById('ansøgningForm');
     const success = document.getElementById('successMsg');
     const button = form.querySelector('button');
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbw16Yke-4LfqAfa0msQiThjO-bZqDkDWo9ZNgFeRm5yIiEd0iLbwkagrQKFPGXWsRor/exec';
+    const scriptURL = '/.netlify/functions/submit-smukraes';
 
     form.addEventListener('submit', e => {
       e.preventDefault();
       button.disabled = true;
       button.textContent = 'Sender...';
-      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-        .then(() => {
-            window.location.href = "tak.html";
-        })
-        .catch(() => {
-          alert("Der opstod en fejl – prøv igen.");
-          button.disabled = false;
-          button.textContent = 'Send ansøgning';
-        });
+      const formData = new FormData(form);
+      const payload = Object.fromEntries(formData.entries());
+
+      fetch(scriptURL, {
+        method: 'POST',
+        body: JSON.stringify(payload),
+        headers: { 'Content-Type': 'application/json' }
+      })
+      .then(() => {
+        window.location.href = "tak.html";
+      })
+      .catch(() => {
+        alert("Der opstod en fejl – prøv igen.");
+        button.disabled = false;
+        button.textContent = 'Send ansøgning';
+      });
     });
   </script>
-
 </body>
 </html>
