@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <title>Spikeball Tilmelding</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Performance optimizations -->
+  <meta name="description" content="Tilmeld dit hold til Spikeball turnering på Smukfest. 2 mod 2 turnering onsdag 12:00-14:30.">
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href="./fonts/Geomanist-Regular.otf" as="font" type="font/otf" crossorigin>
+  <link rel="preload" href="./fonts/Geomanist-Bold.otf" as="font" type="font/otf" crossorigin>
+  <link rel="preload" href="assets/Kulørte_Lamper_05.png" as="image">
+  <link rel="preload" href="assets/Gode_bunde_08.png" as="image">
+
+  <style>
+    @font-face {
+      font-family: 'Geomanist';
+      src: url('./fonts/Geomanist-Regular.otf') format('opentype');
+      font-weight: 400;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Geomanist';
+      src: url('./fonts/Geomanist-Medium.otf') format('opentype');
+      font-weight: 500;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Geomanist';
+      src: url('./fonts/Geomanist-Bold.otf') format('opentype');
+      font-weight: 700;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Geomanist';
+      src: url('./fonts/Geomanist-Black.otf') format('opentype');
+      font-weight: 900;
+      font-display: swap;
+    }
+
+    :root {
+      --smuk-green: #037D51;
+      --smuk-dust: #F1E1D6;
+      --smuk-dark: #1B603D;
+      --smuk-accent: #F4940A;
+    }
+
+    body {
+      background-color: var(--smuk-dust);
+      background-image:
+        url("assets/Kulørte_Lamper_06.png"),
+        url("assets/Gode_bunde_08.png");
+      background-repeat: no-repeat;
+      background-position: top right, bottom center;
+      background-size: 200px, contain;
+      font-family: 'Geomanist', sans-serif;
+      color: var(--smuk-dark);
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 4em 2em;
+      line-height: 1.6;
+      min-height: 100vh;
+      box-sizing: border-box;
+      /* Performance optimizations */
+      will-change: auto;
+      transform: translateZ(0);
+    }
+
+
+    h1 {
+      font-size: 2.2em;
+      font-weight: 900;
+      color: var(--smuk-green);
+      margin-bottom: 0.3em;
+    }
+
+    h2 {
+      font-size: 1.5em;
+      font-weight: 700;
+      color: var(--smuk-green);
+      border-bottom: 2px solid var(--smuk-accent);
+      padding-bottom: 0.2em;
+      margin-top: 2em;
+    }
+
+    ul {
+      padding-left: 1.2em;
+    }
+
+    label {
+      display: block;
+      margin-top: 1.2em;
+      font-weight: 500;
+      color: var(--smuk-dark);
+    }
+
+    input {
+      background: #ffffff;
+      color: var(--smuk-dark);
+      padding: 0.75em;
+      border-radius: 8px;
+      border: 2px solid var(--smuk-dust);
+      width: 100%;
+      box-sizing: border-box;
+      font-family: 'Geomanist', sans-serif;
+      font-weight: 400;
+      font-size: 1em;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      margin-top: 0.3em;
+      /* Performance optimization */
+      will-change: border-color, box-shadow;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: var(--smuk-green);
+      box-shadow: 0 0 0 3px rgba(74, 103, 65, 0.1);
+    }
+
+    button {
+      background: var(--smuk-green);
+      color: white;
+      padding: 0.9em 2em;
+      border: none;
+      border-radius: 8px;
+      font-family: 'Geomanist', sans-serif;
+      font-weight: 600;
+      font-size: 1.1em;
+      cursor: pointer;
+      margin-top: 2em;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(74, 103, 65, 0.3);
+      /* Performance optimization */
+      will-change: background, transform, box-shadow;
+    }
+
+    button:hover {
+      background: var(--smuk-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(74, 103, 65, 0.4);
+    }
+
+    button:disabled {
+      background: var(--smuk-dust);
+      color: var(--smuk-dark);
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    .success {
+      margin-top: 1.2em;
+      padding: 0.8em;
+      background: rgba(143, 188, 143, 0.2);
+      border-left: 4px solid var(--smuk-accent);
+      border-radius: 8px;
+      font-weight: 500;
+      display: none;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 2em;
+      padding: 0.6em 1.2em;
+      background: var(--smuk-green);
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: background 0.3s ease;
+      /* Performance optimization */
+      will-change: background;
+    }
+
+    a:hover {
+      background: var(--smuk-dark);
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Spikeball Turnering 2025 – Fællesskaberne</h1>
+  <p><strong>Tidspunkt:</strong> Onsdag 12:00–14:30</p>
+
+  <h2>📋 Kort om reglerne</h2>
+  <ul>
+    <li>Spilles 2 mod 2 med et net i midten</li>
+    <li>Op til 3 berøringer pr. hold – som i volleyball</li>
+    <li>Bolden skal spilles ned i nettet</li>
+    <li>Bevægelse er fri i 360° omkring nettet</li>
+    <li>Point gives når modstanderen ikke returnerer korrekt</li>
+  </ul>
+
+  <h2>📥 Tilmeld dit hold</h2>
+
+  <form id="tilmeldingForm">
+    <label>Holdnavn:
+      <input type="text" name="Holdnavn" required>
+    </label>
+    <label>Spiller 1:
+      <input type="text" name="Spiller1" required>
+    </label>
+    <label>Spiller 2:
+      <input type="text" name="Spiller2" required>
+    </label>
+    <label>Telefonnummer:
+      <input type="tel" name="Tlf" required>
+    </label>
+    <button type="submit">Send tilmelding</button>
+    <p class="success" id="successMsg">✔ Tilmelding modtaget!</p>
+  </form>
+
+  <p>
+    <a href="index.html">← Tilbage til startside</a>
+  </p>
+
+  <script>
+    const form = document.getElementById('tilmeldingForm');
+    const success = document.getElementById('successMsg');
+    const button = form.querySelector('button');
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyLNWf9z9XI6CDSKfZapmX2994ghn5piMnQx5VnJTkdd6x7x3dX_NE-MKpf3bF5noINDA/exec';
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      button.disabled = true;
+      button.textContent = 'Sender...';
+
+      fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+        .then(() => {
+          window.location.href = "tak.html";
+        })
+        .catch(() => {
+          alert("Der opstod en fejl – prøv igen.");
+          button.disabled = false;
+          button.textContent = 'Send tilmelding';
+        });
+    });
+  </script>
+</body>
+</html>

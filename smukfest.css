@@ -1,0 +1,184 @@
+/* Geomanist Font Faces */
+@font-face {
+  font-family: 'Geomanist';
+  src: url('./fonts/Geomanist-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Geomanist';
+  src: url('./fonts/Geomanist-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Geomanist';
+  src: url('./fonts/Geomanist-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Geomanist';
+  src: url('./fonts/Geomanist-Black.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+:root {
+  --smuk-green: #037D51;     /* Skovgrøn */
+  --smuk-dust: #F1E1D6;      /* Støv */
+  --smuk-soft: #262C2E;      /* Sårt / sort-blød */
+  --smuk-dark: #1B603D;      /* Skovgrøn S1 (dybere tone) */
+  --smuk-accent: #F4940A;    /* Solgul S2 – mere varm og kraftig */
+  --smuk-yellow: #FFC31D;    /* Solgul – original primær */
+  --smuk-red: #E52E12;       /* Kysrød – primær accent */
+  --smuk-blush: #F6AD9E;     /* Nøgen – varm lyserød */
+  --smuk-blue: #324C9B;      /* Søblå – alternativ kontrast */
+}
+
+
+body {
+  background: var(--smuk-dust);
+  color: var(--smuk-dark);
+  font-family: 'Geomanist', 'Segoe UI', sans-serif;
+  font-weight: 400;
+  padding: 2em;
+  max-width: 800px;
+  margin: auto;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+h1, h2 {
+  color: var(--smuk-green);
+  font-family: 'Geomanist', sans-serif;
+  font-weight: 700;
+  margin-bottom: 0.5em;
+}
+
+h1 {
+  font-weight: 900;
+  font-size: 2.5em;
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+h2 {
+  font-size: 1.8em;
+  border-bottom: 2px solid var(--smuk-accent);
+  padding-bottom: 0.3em;
+}
+
+input, select {
+  background: #ffffff;
+  color: var(--smuk-dark);
+  padding: 0.75em;
+  border-radius: 8px;
+  border: 2px solid var(--smuk-dust);
+  width: 100%;
+  box-sizing: border-box;
+  font-family: 'Geomanist', sans-serif;
+  font-weight: 400;
+  font-size: 1em;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--smuk-green);
+  box-shadow: 0 0 0 3px rgba(74, 103, 65, 0.1);
+}
+
+label {
+  display: block;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  font-family: 'Geomanist', sans-serif;
+  font-weight: 500;
+  color: var(--smuk-dark);
+}
+
+button {
+  background: var(--smuk-green);
+  color: white;
+  padding: 0.9em 2em;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Geomanist', sans-serif;
+  font-weight: 600;
+  font-size: 1.1em;
+  cursor: pointer;
+  margin-top: 1.5em;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(74, 103, 65, 0.3);
+}
+
+button:hover {
+  background: var(--smuk-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(74, 103, 65, 0.4);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(74, 103, 65, 0.3);
+}
+
+button:disabled {
+  background: var(--smuk-dust);
+  color: var(--smuk-dark);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+a {
+  color: var(--smuk-green);
+  text-decoration: none;
+  font-family: 'Geomanist', sans-serif;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--smuk-dark);
+  text-decoration: underline;
+}
+
+/* Success message styling */
+.success {
+  background: rgba(143, 188, 143, 0.2);
+  color: var(--smuk-dark);
+  padding: 0.8em;
+  border-radius: 8px;
+  border-left: 4px solid var(--smuk-accent);
+  font-family: 'Geomanist', sans-serif;
+  font-weight: 500;
+  margin-top: 1em;
+}
+
+/* Form styling */
+form {
+  background: rgba(255, 255, 255, 0.7);
+  padding: 2em;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(74, 103, 65, 0.1);
+  backdrop-filter: blur(10px);
+  margin: 2em 0;
+}
+
+/* Additional styling for better visual hierarchy */
+p {
+  font-family: 'Geomanist', sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  margin-bottom: 1.2em;
+}
+
+strong {
+  font-weight: 600;
+  color: var(--smuk-green);
+}

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <title>Hent din bingoplade</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preload" href="./fonts/Geomanist-Regular.otf" as="font" type="font/otf" crossorigin>
+  <link rel="preload" href="./fonts/Geomanist-Bold.otf" as="font" type="font/otf" crossorigin>
+  <link rel="preload" href="assets/Gode_bunde_med_illustration_05.png" as="image">
+  <style>
+    @font-face {
+      font-family: 'Geomanist';
+      src: url('./fonts/Geomanist-Regular.otf') format('opentype');
+      font-weight: 400;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Geomanist';
+      src: url('./fonts/Geomanist-Bold.otf') format('opentype');
+      font-weight: 700;
+      font-display: swap;
+    }
+
+    :root {
+      --smuk-green: #037D51;
+      --smuk-dust: #F1E1D6;
+      --smuk-dark: #2d3e2a;
+      --smuk-yellow: #facc15;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Geomanist', sans-serif;
+      background-color: var(--smuk-dust);
+      background-image: url("assets/Gode_bunde_med_illustration_05.png");
+      background-repeat: no-repeat;
+      background-position: bottom center;
+      background-size: 100% auto;
+      padding: 4em 2em;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      color: var(--smuk-dark);
+    }
+
+    .content {
+      max-width: 600px;
+      width: 100%;
+      padding: 2em;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2em;
+      font-weight: 900;
+      color: var(--smuk-green);
+      margin-bottom: 1em;
+    }
+
+    p {
+      font-size: 1.1em;
+      margin-bottom: 1.5em;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.75em;
+      border: 2px solid var(--smuk-dust);
+      border-radius: 8px;
+      font-family: 'Geomanist';
+      font-size: 1em;
+      margin-bottom: 1em;
+    }
+
+    button {
+      background: var(--smuk-green);
+      color: white;
+      padding: 0.9em 2em;
+      border: none;
+      border-radius: 8px;
+      font-family: 'Geomanist';
+      font-weight: 600;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: var(--smuk-dark);
+    }
+
+    .success {
+      display: none;
+      margin-top: 1.2em;
+      background: rgba(3,125,81,0.1);
+      padding: 1em;
+      border-left: 4px solid var(--smuk-green);
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <h1>🎱 Hent din bingoplade</h1>
+    <p>Indtast din email for at få tildelt en unik plade.<br>Du kan kun hente én.</p>
+
+    <form id="pladeForm">
+      <input type="email" name="email" placeholder="Din email" required>
+      <button type="submit">Bekræft og hent plade</button>
+    </form>
+
+    <p class="success" id="successMsg">✔ Plade tildelt – du bliver omdirigeret!</p>
+     <p>
+        <a href="index.html">← Tilbage til startside</a>
+    </p>
+  </div>
+
+  <script>
+    const form = document.getElementById('pladeForm');
+    const success = document.getElementById('successMsg');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      success.style.display = 'block';
+
+      const email = form.email.value;
+      // Her skal der kaldes Google Apps Script endpoint med email
+      // og redirecte til fx `plade.html?email=email`
+
+      setTimeout(() => {
+        window.location.href = `plade.html?email=${encodeURIComponent(email)}`;
+      }, 1000);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tak for tilmelding</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Performance optimizations -->
+  <meta name="description" content="Tak for din tilmelding til Smukfest events. Vi glæder os til at se dig til eventet!">
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href="./fonts/Geomanist-Regular.otf" as="font" type="font/otf" crossorigin>
+  <link rel="preload" href="./fonts/Geomanist-Bold.otf" as="font" type="font/otf" crossorigin>
+  <link rel="preload" href="assets/Gode_bunde_med_illustration_02.png" as="image">
+  
+  <style>
+    @font-face {
+      font-family: 'Geomanist';
+      src: url('./fonts/Geomanist-Regular.otf') format('opentype');
+      font-weight: 400;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Geomanist';
+      src: url('./fonts/Geomanist-Bold.otf') format('opentype');
+      font-weight: 700;
+      font-display: swap;
+    }
+
+    :root {
+      --smuk-green: #037D51;
+      --smuk-dust: #F1E1D6;
+      --smuk-dark: #1B603D;
+      --smuk-accent: #F4940A;
+    }
+
+    body {
+      background-color: var(--smuk-dust);
+      background-image: 
+        url("assets/Walther.png"),
+        url("assets/Gode_bunde_med_illustration_02.png");
+      background-repeat: no-repeat;
+      background-position: 
+        center 60%,
+        bottom center;
+      background-size: 
+        300px,
+        contain;
+      font-family: 'Geomanist', sans-serif;
+      color: var(--smuk-dark);
+      text-align: center;
+      padding: 6rem 1rem 12rem;
+      min-height: 100vh;
+      box-sizing: border-box;
+      will-change: auto;
+      transform: translateZ(0);
+    }
+
+    .success {
+      background: rgba(3, 125, 80, 0.18); /* smuk-green uden transparens */
+      display: inline-block;
+      padding: 2rem;
+      border-radius: 10px;
+      border: 2px solid var(--smuk-green);
+      max-width: 400px;
+      color: var(--smuk-dark);
+    }
+
+    h2 {
+      font-size: 2em;
+      color: var(--smuk-green);
+      font-weight: 700;
+      margin-bottom: 0.5em;
+    }
+
+    p {
+      font-size: 1.1em;
+      margin-bottom: 1em;
+    }
+
+    button {
+      margin-top: 1rem;
+      padding: 0.6em 1.2em;
+      border: none;
+      background: var(--smuk-green);
+      color: white;
+      font-size: 1em;
+      font-family: 'Geomanist', sans-serif;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      will-change: background;
+    }
+
+    button:hover {
+      background: var(--smuk-dark);
+    }
+  </style>
+</head>
+<body>
+  <div class="success">
+    <h2>🎉 Tak!</h2>
+    <p>Vi har modtaget jeres hold. Vi glæder os til at se jer til eventet!</p>
+    <button onclick="window.location.href='index.html'">Tilbage til oversigten</button>
+  </div>
+</body>
+</html>
