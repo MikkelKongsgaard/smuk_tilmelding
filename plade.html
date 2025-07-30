@@ -60,11 +60,21 @@
       font-weight: 600;
       border: 2px solid var(--smuk-green);
       min-height: 3rem;
+      cursor: pointer;
+      user-select: none;
     }
 
     .empty {
       background-color: #e5e5e5;
       border: 2px dashed #ccc;
+      cursor: default;
+    }
+
+    .marked {
+      background-color: var(--smuk-yellow);
+      border-color: var(--smuk-dark);
+      color: var(--smuk-dark);
+      text-decoration: line-through;
     }
 
     .footer {
@@ -96,7 +106,6 @@
       }
 
       const { grid } = await res.json();
-
       const container = document.getElementById("bingoGrid");
       container.innerHTML = "";
 
@@ -109,6 +118,9 @@
             div.textContent = "";
           } else {
             div.textContent = cell;
+            div.addEventListener("click", () => {
+              div.classList.toggle("marked");
+            });
           }
           container.appendChild(div);
         }
