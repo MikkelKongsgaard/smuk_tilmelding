@@ -1,164 +1,192 @@
 <!DOCTYPE html>
 <html lang="da">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Bingo Admin</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preload" href="./fonts/Geomanist-Regular.otf" as="font" type="font/otf" crossorigin>
-  <link rel="preload" href="./fonts/Geomanist-Bold.otf" as="font" type="font/otf" crossorigin>
-  <style>
-    @font-face {
-      font-family: 'Geomanist';
-      src: url('./fonts/Geomanist-Regular.otf') format('opentype');
-      font-weight: 400;
-    }
-    @font-face {
-      font-family: 'Geomanist';
-      src: url('./fonts/Geomanist-Bold.otf') format('opentype');
-      font-weight: 700;
-    }
+    <meta charset="UTF-8">
+    <title>Bingo Admin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload" href="./fonts/Geomanist-Regular.otf" as="font" type="font/otf" crossorigin>
+    <link rel="preload" href="./fonts/Geomanist-Bold.otf" as="font" type="font/otf" crossorigin>
+    <style>
+        @font-face {
+            font-family: 'Geomanist';
+            src: url('./fonts/Geomanist-Regular.otf') format('opentype');
+            font-weight: 400;
+        }
 
-    :root {
-      --smuk-green: #037D51;
-      --smuk-dust: #F1E1D6;
-      --smuk-dark: #2d3e2a;
-      --smuk-yellow: #facc15;
-    }
+        @font-face {
+            font-family: 'Geomanist';
+            src: url('./fonts/Geomanist-Bold.otf') format('opentype');
+            font-weight: 700;
+        }
 
-    body {
-      font-family: 'Geomanist', sans-serif;
-      background-color: var(--smuk-dust);
-      padding: 2rem;
-      color: var(--smuk-dark);
-      max-width: 700px;
-      margin: auto;
-    }
+        :root {
+            --smuk-green: #037D51;
+            --smuk-dust: #F1E1D6;
+            --smuk-dark: #2d3e2a;
+            --smuk-yellow: #facc15;
+        }
 
-    h1, h2, h3 {
-      color: var(--smuk-green);
-    }
+        body {
+            font-family: 'Geomanist', sans-serif;
+            background-color: var(--smuk-dust);
+            padding: 2rem;
+            color: var(--smuk-dark);
+            max-width: 700px;
+            margin: auto;
+        }
 
-    input, button {
-      font-family: 'Geomanist';
-      padding: 0.6rem;
-      margin-top: 0.5rem;
-      margin-bottom: 1rem;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      font-size: 1rem;
-    }
+        h1,
+        h2,
+        h3 {
+            color: var(--smuk-green);
+        }
 
-    button {
-      background-color: var(--smuk-green);
-      color: white;
-      cursor: pointer;
-    }
+        input,
+        button {
+            font-family: 'Geomanist';
+            padding: 0.6rem;
+            margin-top: 0.5rem;
+            margin-bottom: 1rem;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+        }
 
-    .number-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 1rem;
-    }
+        button {
+            background-color: var(--smuk-green);
+            color: white;
+            cursor: pointer;
+        }
 
-    .number-grid div {
-      width: 40px;
-      height: 40px;
-      background-color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: 6px;
-      border: 2px solid var(--smuk-green);
-      cursor: pointer;
-    }
+        .number-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
 
-    .called-number.selected {
-      background-color: var(--smuk-yellow);
-      border-color: var(--smuk-dark);
-    }
+        .number-grid div {
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 6px;
+            border: 2px solid var(--smuk-green);
+            cursor: pointer;
+        }
 
-    .result {
-      margin-top: 1rem;
-      font-weight: bold;
-    }
-  </style>
+        .called-number.selected {
+            background-color: var(--smuk-green);
+            border-color: var(--smuk-dark);
+        }
+
+        .result {
+            margin-top: 1rem;
+            font-weight: bold;
+        }
+    </style>
 </head>
+
 <body>
-  <h1>🧠 Bingo Admin</h1>
+    <h1>🧠 Bingo Admin</h1>
 
-  <h2>Tilføj trukket tal</h2>
-  <input type="number" id="newNumber" min="1" max="90" placeholder="Tal 1-90">
-  <button onclick="submitNumber()">Tilføj</button>
+    <h2>Tilføj trukket tal</h2>
+    <input type="number" id="newNumber" min="1" max="90" placeholder="Tal 1-90">
+    <button onclick="submitNumber()">Tilføj</button>
 
-  <h3>Udtrukne tal (klik for at vælge)</h3>
-  <div id="calledNumbers" class="number-grid">Indlæser...</div>
-  <button onclick="removeSelectedNumber()">Fjern valgt tal</button>
+    <h3>Udtrukne tal (klik for at vælge)</h3>
+    <div id="calledNumbers" class="number-grid">Indlæser...</div>
+    <button onclick="removeSelectedNumber()">Fjern valgt tal</button>
 
-  <hr>
+    <hr>
 
-  <h2>Tjek plade</h2>
-  <input type="email" id="checkEmail" placeholder="Email">
-  <button onclick="checkPlate()">Tjek plade</button>
-  <div id="checkResult" class="result"></div>
+    <h2>Tjek plade</h2>
+    <input type="email" id="checkEmail" placeholder="Email">
+    <button onclick="checkPlate()">Tjek plade</button>
+    <div id="checkResult" class="result"></div>
 
-  <script>
-    let selectedNumber = null;
+    <hr>
+    <h2>Nulstil spil</h2>
+    <button onclick="resetGame()">🔄 Start nyt spil</button>
+    <div id="resetStatus" class="result"></div>
 
-    async function loadCalledNumbers() {
-      const res = await fetch('/.netlify/functions/get-called-numbers');
-      const { numbers } = await res.json();
-      const container = document.getElementById("calledNumbers");
-      container.innerHTML = "";
 
-      numbers.forEach(n => {
-        const div = document.createElement("div");
-        div.textContent = n;
-        div.className = "called-number";
-        if (n === selectedNumber) div.classList.add("selected");
+    <script>
+        let selectedNumber = null;
 
-        div.onclick = () => {
-          selectedNumber = n === selectedNumber ? null : n;
-          loadCalledNumbers(); // re-render to reflect selection
-        };
+        async function loadCalledNumbers() {
+            const res = await fetch('/.netlify/functions/get-called-numbers');
+            const { numbers } = await res.json();
+            const container = document.getElementById("calledNumbers");
+            container.innerHTML = "";
 
-        container.appendChild(div);
-      });
-    }
+            numbers.forEach(n => {
+                const div = document.createElement("div");
+                div.textContent = n;
+                div.className = "called-number";
+                if (n === selectedNumber) div.classList.add("selected");
 
-    async function submitNumber() {
-      const num = parseInt(document.getElementById("newNumber").value);
-      if (!num || num < 1 || num > 90) return;
-      await fetch('/.netlify/functions/add-called-number', {
-        method: 'POST',
-        body: JSON.stringify({ number: num }),
-        headers: { 'Content-Type': 'application/json' }
-      });
-      document.getElementById("newNumber").value = "";
-      loadCalledNumbers();
-    }
+                div.onclick = () => {
+                    selectedNumber = n === selectedNumber ? null : n;
+                    loadCalledNumbers(); // re-render to reflect selection
+                };
 
-    async function removeSelectedNumber() {
-      if (!selectedNumber) return alert("Vælg først et tal, der skal fjernes.");
-      if (!confirm(`Fjern tallet ${selectedNumber}?`)) return;
+                container.appendChild(div);
+            });
+        }
 
-      await fetch('/.netlify/functions/remove-called-number', {
-        method: 'POST',
-        body: JSON.stringify({ number: selectedNumber }),
-        headers: { 'Content-Type': 'application/json' }
-      });
-      selectedNumber = null;
-      loadCalledNumbers();
-    }
+        async function submitNumber() {
+            const num = parseInt(document.getElementById("newNumber").value);
+            if (!num || num < 1 || num > 90) return;
+            await fetch('/.netlify/functions/add-called-number', {
+                method: 'POST',
+                body: JSON.stringify({ number: num }),
+                headers: { 'Content-Type': 'application/json' }
+            });
+            document.getElementById("newNumber").value = "";
+            loadCalledNumbers();
+        }
 
-    async function checkPlate() {
-      const email = document.getElementById("checkEmail").value;
-      const res = await fetch('/.netlify/functions/check-plate-status?email=' + encodeURIComponent(email));
-      const data = await res.json();
-      document.getElementById("checkResult").textContent = data.result || data.error;
-    }
+        async function removeSelectedNumber() {
+            if (!selectedNumber) return alert("Vælg først et tal, der skal fjernes.");
+            if (!confirm(`Fjern tallet ${selectedNumber}?`)) return;
 
-    loadCalledNumbers();
-  </script>
+            await fetch('/.netlify/functions/remove-called-number', {
+                method: 'POST',
+                body: JSON.stringify({ number: selectedNumber }),
+                headers: { 'Content-Type': 'application/json' }
+            });
+            selectedNumber = null;
+            loadCalledNumbers();
+        }
+
+        async function checkPlate() {
+            const email = document.getElementById("checkEmail").value;
+            const res = await fetch('/.netlify/functions/check-plate-status?email=' + encodeURIComponent(email));
+            const data = await res.json();
+            document.getElementById("checkResult").textContent = data.result || data.error;
+        }
+
+        loadCalledNumbers();
+
+        async function resetGame() {
+            const confirmed = confirm("Er du sikker på, at du vil starte et nyt spil?");
+            if (!confirmed) return;
+
+            const res = await fetch('/.netlify/functions/reset-game', { method: 'POST' });
+
+            if (res.ok) {
+                document.getElementById("resetStatus").textContent = "Spillet er nulstillet!";
+                loadCalledNumbers(); // opdater visning
+            } else {
+                document.getElementById("resetStatus").textContent = "Fejl under nulstilling.";
+            }
+        }
+
+    </script>
 </body>
+
 </html>
