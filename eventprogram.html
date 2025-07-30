@@ -4,13 +4,17 @@
   <meta charset="UTF-8">
   <title>Eventprogram – Smukfest</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href="assets/Fællesskaberne Eventprogram 2025.jpg" as="image">
+  
   <!-- Styling -->
   <style>
     body {
       margin: 0;
       background-color: #001F3F;
       font-family: 'Geomanist', sans-serif;
+      font-display: swap;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -29,6 +33,7 @@
       height: auto;
       border-radius: 12px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      will-change: transform;
     }
 
     a.back-link {
@@ -40,6 +45,7 @@
       padding: 0.6em 1.2em;
       border-radius: 6px;
       font-weight: 600;
+      transition: background-color 0.2s ease;
     }
 
     a.back-link:hover {
