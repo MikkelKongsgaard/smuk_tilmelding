@@ -1,173 +1,176 @@
 <!DOCTYPE html>
 <html lang="da">
+
 <head>
   <meta charset="UTF-8">
   <title>Høvdingebold Tilmelding</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
   <!-- Performance optimizations -->
-  <meta name="description" content="Tilmeld dit hold til Høvdingebold turnering på Smukfest. Dodgeball-turnering fredag 10:00-13:00.">
-  
+  <meta name="description"
+    content="Tilmeld dit hold til Høvdingebold turnering på Smukfest. Dodgeball-turnering fredag 10:00-13:00.">
+
   <!-- Preload critical resources -->
   <link rel="preload" href="./fonts/Geomanist-Regular.otf" as="font" type="font/otf" crossorigin>
   <link rel="preload" href="./fonts/Geomanist-Bold.otf" as="font" type="font/otf" crossorigin>
   <link rel="preload" href="assets/Blomst_Jackstick_03.png" as="image">
   <link rel="preload" href="assets/Gode_bunde_med_illustration_15.png" as="image">
-  
-<style>
-  @font-face {
-    font-family: 'Geomanist';
-    src: url('./fonts/Geomanist-Regular.otf') format('opentype');
-    font-weight: 400;
-    font-display: swap;
-  }
 
-  @font-face {
-    font-family: 'Geomanist';
-    src: url('./fonts/Geomanist-Bold.otf') format('opentype');
-    font-weight: 700;
-    font-display: swap;
-  }
+  <style>
+    @font-face {
+      font-family: 'Geomanist';
+      src: url('./fonts/Geomanist-Regular.otf') format('opentype');
+      font-weight: 400;
+      font-display: swap;
+    }
 
-  :root {
-    --smuk-green: #037D51;
-    --smuk-dust: #F1E1D6;
-    --smuk-dark: #1B603D;
-    --smuk-accent: #F4940A;
-  }
+    @font-face {
+      font-family: 'Geomanist';
+      src: url('./fonts/Geomanist-Bold.otf') format('opentype');
+      font-weight: 700;
+      font-display: swap;
+    }
 
-  body {
-    background-color: var(--smuk-dust);
-    background-image:
-      url("assets/Blomst_Jackstick_03.png"),
-      url("assets/Gode_bunde_med_illustration_15.png");
-    background-repeat: no-repeat;
-    background-position: top right, bottom center;
-    background-size: 360px, contain;
-    font-family: 'Geomanist', sans-serif;
-    color: var(--smuk-dark);
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 4em 2em;
-    line-height: 1.6;
-    min-height: 100vh;
-    box-sizing: border-box;
-    /* Performance optimizations */
-    will-change: auto;
-    transform: translateZ(0);
-  }
+    :root {
+      --smuk-green: #037D51;
+      --smuk-dust: #F1E1D6;
+      --smuk-dark: #1B603D;
+      --smuk-accent: #F4940A;
+    }
 
-  h1 {
-    font-size: 2.2em;
-    font-weight: 900;
-    color: var(--smuk-green);
-    margin-bottom: 0.3em;
-  }
+    body {
+      background-color: var(--smuk-dust);
+      background-image:
+        url("assets/Blomst_Jackstick_03.png"),
+        url("assets/Gode_bunde_med_illustration_15.png");
+      background-repeat: no-repeat;
+      background-position: top right, bottom center;
+      background-size: 360px, contain;
+      font-family: 'Geomanist', sans-serif;
+      color: var(--smuk-dark);
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 4em 2em;
+      line-height: 1.6;
+      min-height: 100vh;
+      box-sizing: border-box;
+      /* Performance optimizations */
+      will-change: auto;
+      transform: translateZ(0);
+    }
 
-  h2 {
-    font-size: 1.5em;
-    font-weight: 700;
-    color: var(--smuk-green);
-    border-bottom: 2px solid var(--smuk-accent);
-    padding-bottom: 0.2em;
-    margin-top: 2em;
-  }
+    h1 {
+      font-size: 2.2em;
+      font-weight: 900;
+      color: var(--smuk-green);
+      margin-bottom: 0.3em;
+    }
 
-  ol li {
-    margin-bottom: 1em;
-  }
+    h2 {
+      font-size: 1.5em;
+      font-weight: 700;
+      color: var(--smuk-green);
+      border-bottom: 2px solid var(--smuk-accent);
+      padding-bottom: 0.2em;
+      margin-top: 2em;
+    }
 
-  label {
-    display: block;
-    margin-top: 1.2em;
-    font-weight: 500;
-    color: var(--smuk-dark);
-  }
+    ol li {
+      margin-bottom: 1em;
+    }
 
-  input {
-    background: #ffffff;
-    color: var(--smuk-dark);
-    padding: 0.75em;
-    border-radius: 8px;
-    border: 2px solid var(--smuk-dust);
-    width: 100%;
-    box-sizing: border-box;
-    font-family: 'Geomanist', sans-serif;
-    font-weight: 400;
-    font-size: 1em;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    margin-top: 0.3em;
-    /* Performance optimization */
-    will-change: border-color, box-shadow;
-  }
+    label {
+      display: block;
+      margin-top: 1.2em;
+      font-weight: 500;
+      color: var(--smuk-dark);
+    }
 
-  input:focus {
-    outline: none;
-    border-color: var(--smuk-green);
-    box-shadow: 0 0 0 3px rgba(74, 103, 65, 0.1);
-  }
+    input {
+      background: #ffffff;
+      color: var(--smuk-dark);
+      padding: 0.75em;
+      border-radius: 8px;
+      border: 2px solid var(--smuk-dust);
+      width: 100%;
+      box-sizing: border-box;
+      font-family: 'Geomanist', sans-serif;
+      font-weight: 400;
+      font-size: 1em;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      margin-top: 0.3em;
+      /* Performance optimization */
+      will-change: border-color, box-shadow;
+    }
 
-  button {
-    background: var(--smuk-green);
-    color: white;
-    padding: 0.9em 2em;
-    border: none;
-    border-radius: 8px;
-    font-family: 'Geomanist', sans-serif;
-    font-weight: 600;
-    font-size: 1.1em;
-    cursor: pointer;
-    margin-top: 2em;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(74, 103, 65, 0.3);
-    /* Performance optimization */
-    will-change: background, transform, box-shadow;
-  }
+    input:focus {
+      outline: none;
+      border-color: var(--smuk-green);
+      box-shadow: 0 0 0 3px rgba(74, 103, 65, 0.1);
+    }
 
-  button:hover {
-    background: var(--smuk-dark);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(74, 103, 65, 0.4);
-  }
+    button {
+      background: var(--smuk-green);
+      color: white;
+      padding: 0.9em 2em;
+      border: none;
+      border-radius: 8px;
+      font-family: 'Geomanist', sans-serif;
+      font-weight: 600;
+      font-size: 1.1em;
+      cursor: pointer;
+      margin-top: 2em;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(74, 103, 65, 0.3);
+      /* Performance optimization */
+      will-change: background, transform, box-shadow;
+    }
 
-  button:disabled {
-    background: var(--smuk-dust);
-    color: var(--smuk-dark);
-    cursor: not-allowed;
-    transform: none;
-    box-shadow: none;
-  }
+    button:hover {
+      background: var(--smuk-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(74, 103, 65, 0.4);
+    }
 
-  .success {
-    margin-top: 1.2em;
-    padding: 0.8em;
-    background: rgba(143, 188, 143, 0.2);
-    border-left: 4px solid var(--smuk-accent);
-    border-radius: 8px;
-    font-weight: 500;
-    display: none;
-  }
+    button:disabled {
+      background: var(--smuk-dust);
+      color: var(--smuk-dark);
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
 
-  a {
-    display: inline-block;
-    margin-top: 2em;
-    padding: 0.6em 1.2em;
-    background: var(--smuk-green);
-    color: white;
-    text-decoration: none;
-    border-radius: 6px;
-    font-weight: 600;
-    transition: background 0.3s ease;
-    /* Performance optimization */
-    will-change: background;
-  }
+    .success {
+      margin-top: 1.2em;
+      padding: 0.8em;
+      background: rgba(143, 188, 143, 0.2);
+      border-left: 4px solid var(--smuk-accent);
+      border-radius: 8px;
+      font-weight: 500;
+      display: none;
+    }
 
-  a:hover {
-    background: var(--smuk-dark);
-  }
-</style>
+    a {
+      display: inline-block;
+      margin-top: 2em;
+      padding: 0.6em 1.2em;
+      background: var(--smuk-green);
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: background 0.3s ease;
+      /* Performance optimization */
+      will-change: background;
+    }
+
+    a:hover {
+      background: var(--smuk-dark);
+    }
+  </style>
 
 </head>
+
 <body>
 
   <h1>Høvdingebold Turnering</h1>
@@ -175,9 +178,12 @@
 
   <h2>📋 Reglerne</h2>
   <ol>
-    <li>En typisk dodgeball-bane er cirka på størrelse med en lille volleyballbane, med en midterlinje og to sidelinjer.</li>
-    <li>Dodgeball spilles primært uden dommere og bygger på fairplay ("honour rules"). Under ligakampe er der ofte dommere, som styrer spillet og bekræfter træg og greb.</li>
-    <li>Der er 6 bolde, fordelt i to grupper midt på banen. Ved kampstart ("start-rush") må man kun tage bolde fra sin højre side.</li>
+    <li>En typisk dodgeball-bane er cirka på størrelse med en lille volleyballbane, med en midterlinje og to sidelinjer.
+    </li>
+    <li>Dodgeball spilles primært uden dommere og bygger på fairplay ("honour rules"). Under ligakampe er der ofte
+      dommere, som styrer spillet og bekræfter træg og greb.</li>
+    <li>Der er 6 bolde, fordelt i to grupper midt på banen. Ved kampstart ("start-rush") må man kun tage bolde fra sin
+      højre side.</li>
     <li>Du er ude, hvis:
       <ol>
         <li>du træder på eller over en sidelinje eller midterlinjen</li>
@@ -187,9 +193,11 @@
     </li>
     <li>En kastet levende bold kan kun slå én spiller ud. Døde bolde tæller ikke.</li>
     <li>Du må blokere med en bold, men hvis du taber eller bliver ramt efter blokering, er du ude.</li>
-    <li>Ved udslag stiller du dig i kø. Hvis en medspiller griber en bold, kommer den forreste spiller tilbage i spil.</li>
+    <li>Ved udslag stiller du dig i kø. Hvis en medspiller griber en bold, kommer den forreste spiller tilbage i spil.
+    </li>
     <li>Du må kun holde en bold i maks. 10 sekunder, ellers skal den rulles over til modstanderen.</li>
-    <li>Hvis der til sidst kun er én spiller tilbage på hvert hold, har de 10 sekunder til at afgøre kampen. Ellers starter “Showdown”.</li>
+    <li>Hvis der til sidst kun er én spiller tilbage på hvert hold, har de 10 sekunder til at afgøre kampen. Ellers
+      starter “Showdown”.</li>
   </ol>
 
   <h2>📥 Tilmeld dit hold</h2>
@@ -212,44 +220,46 @@
   </p>
 
 
-<script>
-  const form = document.getElementById('tilmeldingForm');
-  const success = document.getElementById('successMsg');
-  const button = form.querySelector('button');
+  <script>
+    const form = document.getElementById('tilmeldingForm');
+    const success = document.getElementById('successMsg');
+    const button = form.querySelector('button');
 
-  form.addEventListener('submit', async e => {
-    e.preventDefault();
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
 
-    button.disabled = true;
-    button.textContent = 'Sender...';
+      button.disabled = true;
+      button.textContent = 'Sender...';
 
-    const formData = {
-      team_name: form.Holdnavn.value,
-      player_count: form.AntalSpillere.value,
-      phone: form.Tlf.value
-    };
+      const formData = {
+        Holdnavn: form.Holdnavn.value,
+        AntalSpillere: form.AntalSpillere.value,
+        Tlf: form.Tlf.value
+      };
 
-    try {
-      const res = await fetch('/.netlify/functions/submit-hovdingebold', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
-      });
 
-      if (res.ok) {
-        window.location.href = 'tak.html';
-      } else {
-        throw new Error('Fejl ved tilmelding');
+      try {
+        const res = await fetch('/.netlify/functions/submit-hovdingebold', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
+        });
+
+        if (res.ok) {
+          window.location.href = 'tak.html';
+        } else {
+          throw new Error('Fejl ved tilmelding');
+        }
+      } catch (err) {
+        alert("Der opstod en fejl – prøv igen.");
+        button.disabled = false;
+        button.textContent = 'Send tilmelding';
       }
-    } catch (err) {
-      alert("Der opstod en fejl – prøv igen.");
-      button.disabled = false;
-      button.textContent = 'Send tilmelding';
-    }
-  });
-</script>
+    });
+  </script>
 
 
 
 </body>
+
 </html>
