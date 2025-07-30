@@ -1,0 +1,1000 @@
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (1, '[[0,11,28,0,0,57,0,71,89],[7,15,0,30,0,0,63,0,86],[2,0,25,38,0,53,61,0,0]]'::jsonb, '[11,28,57,71,89,7,15,30,63,86,2,25,38,53,61]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (2, '[[7,17,0,30,0,0,64,0,83],[0,19,0,0,0,55,61,71,84],[0,0,25,31,46,58,0,0,86]]'::jsonb, '[7,17,30,64,83,19,55,61,71,84,25,31,46,58,86]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (3, '[[0,0,26,37,0,50,65,0,89],[0,17,21,33,0,0,63,79,0],[0,15,22,0,40,57,66,0,0]]'::jsonb, '[26,37,50,65,89,17,21,33,63,79,15,22,40,57,66]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (4, '[[3,18,0,0,0,51,68,76,0],[7,16,20,31,49,0,0,0,0],[9,0,23,35,48,53,0,0,0]]'::jsonb, '[3,18,51,68,76,7,16,20,31,49,9,23,35,48,53]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (5, '[[8,0,0,34,0,0,62,71,86],[7,10,0,0,48,55,0,70,0],[9,15,0,0,0,0,68,78,82]]'::jsonb, '[8,34,62,71,86,7,10,48,55,70,9,15,68,78,82]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (6, '[[7,17,22,0,47,0,68,0,0],[6,16,0,0,0,51,0,74,82],[0,0,25,37,44,57,69,0,0]]'::jsonb, '[7,17,22,47,68,6,16,51,74,82,25,37,44,57,69]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (7, '[[0,19,24,0,46,0,0,79,84],[6,0,22,35,0,0,66,76,0],[2,0,20,30,0,0,67,0,90]]'::jsonb, '[19,24,46,79,84,6,22,35,66,76,2,20,30,67,90]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (8, '[[5,13,22,32,0,0,67,0,0],[9,17,29,33,0,0,0,0,80],[0,11,0,37,45,54,0,0,82]]'::jsonb, '[5,13,22,32,67,9,17,29,33,80,11,37,45,54,82]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (9, '[[0,0,0,33,49,53,65,0,87],[0,13,0,31,0,52,0,79,85],[0,0,27,0,42,58,61,0,90]]'::jsonb, '[33,49,53,65,87,13,31,52,79,85,27,42,58,61,90]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (10, '[[8,0,0,0,47,55,67,78,0],[4,0,29,0,49,0,0,75,83],[6,0,24,31,41,0,69,0,0]]'::jsonb, '[8,47,55,67,78,4,29,49,75,83,6,24,31,41,69]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (11, '[[0,18,21,38,0,51,0,75,0],[1,17,22,30,0,0,63,0,0],[6,0,27,36,0,52,65,0,0]]'::jsonb, '[18,21,38,51,75,1,17,22,30,63,6,27,36,52,65]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (12, '[[0,12,24,31,46,54,0,0,0],[0,0,25,38,44,0,62,0,80],[0,17,27,36,40,0,0,0,84]]'::jsonb, '[12,24,31,46,54,25,38,44,62,80,17,27,36,40,84]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (13, '[[8,0,0,31,0,59,0,72,85],[4,0,0,33,45,0,0,71,83],[0,0,26,0,46,57,0,78,86]]'::jsonb, '[8,31,59,72,85,4,33,45,71,83,26,46,57,78,86]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (14, '[[0,18,0,37,43,57,0,0,83],[0,15,29,0,48,0,63,72,0],[6,13,0,39,44,59,0,0,0]]'::jsonb, '[18,37,43,57,83,15,29,48,63,72,6,13,39,44,59]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (15, '[[6,14,0,0,49,57,0,0,81],[8,0,21,33,0,58,0,0,83],[9,13,0,32,0,55,0,0,82]]'::jsonb, '[6,14,49,57,81,8,21,33,58,83,9,13,32,55,82]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (16, '[[9,13,0,0,41,56,0,73,0],[0,0,27,0,44,55,0,77,83],[0,10,21,35,45,0,0,0,87]]'::jsonb, '[9,13,41,56,73,27,44,55,77,83,10,21,35,45,87]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (17, '[[0,0,26,32,42,50,0,0,86],[0,0,28,31,0,54,66,74,0],[0,0,23,36,0,0,64,78,84]]'::jsonb, '[26,32,42,50,86,28,31,54,66,74,23,36,64,78,84]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (18, '[[2,15,0,0,46,0,60,79,0],[8,0,0,30,0,0,68,71,83],[5,0,20,0,0,58,62,0,89]]'::jsonb, '[2,15,46,60,79,8,30,68,71,83,5,20,58,62,89]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (19, '[[0,13,0,0,46,0,60,75,90],[0,0,21,31,43,0,69,0,84],[2,0,0,37,44,0,0,73,83]]'::jsonb, '[13,46,60,75,90,21,31,43,69,84,2,37,44,73,83]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (20, '[[8,0,0,33,44,55,69,0,0],[4,0,0,34,49,0,61,0,83],[2,12,0,0,0,51,60,75,0]]'::jsonb, '[8,33,44,55,69,4,34,49,61,83,2,12,51,60,75]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (21, '[[0,11,0,38,46,0,64,0,85],[2,0,0,30,40,0,63,0,81],[0,17,0,36,41,59,68,0,0]]'::jsonb, '[11,38,46,64,85,2,30,40,63,81,17,36,41,59,68]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (22, '[[0,17,0,0,47,57,0,74,86],[0,0,22,0,0,50,63,75,89],[8,13,21,0,0,52,0,0,81]]'::jsonb, '[17,47,57,74,86,22,50,63,75,89,8,13,21,52,81]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (23, '[[0,0,28,37,49,52,0,0,86],[9,0,0,0,0,58,61,73,90],[6,0,0,33,48,0,0,78,89]]'::jsonb, '[28,37,49,52,86,9,58,61,73,90,6,33,48,78,89]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (24, '[[0,10,20,0,0,52,61,71,0],[5,0,22,33,48,0,69,0,0],[2,18,0,0,0,53,64,73,0]]'::jsonb, '[10,20,52,61,71,5,22,33,48,69,2,18,53,64,73]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (25, '[[9,18,25,0,0,56,0,74,0],[0,0,29,0,45,0,60,72,90],[7,12,0,0,0,54,61,0,87]]'::jsonb, '[9,18,25,56,74,29,45,60,72,90,7,12,54,61,87]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (26, '[[0,0,20,36,47,54,0,73,0],[6,0,0,0,49,0,64,77,82],[0,14,0,0,46,0,60,72,89]]'::jsonb, '[20,36,47,54,73,6,49,64,77,82,14,46,60,72,89]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (27, '[[0,0,23,0,48,54,68,76,0],[3,0,29,36,0,53,0,73,0],[6,0,0,33,0,55,65,0,85]]'::jsonb, '[23,48,54,68,76,3,29,36,53,73,6,33,55,65,85]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (28, '[[6,19,0,0,49,54,65,0,0],[0,17,29,0,42,50,62,0,0],[0,12,28,0,0,53,67,73,0]]'::jsonb, '[6,19,49,54,65,17,29,42,50,62,12,28,53,67,73]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (29, '[[7,12,24,0,46,54,0,0,0],[2,0,0,0,0,53,68,73,82],[5,13,0,0,48,57,0,75,0]]'::jsonb, '[7,12,24,46,54,2,53,68,73,82,5,13,48,57,75]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (30, '[[7,11,26,36,0,53,0,0,0],[8,0,0,39,47,54,0,0,86],[3,16,21,34,0,52,0,0,0]]'::jsonb, '[7,11,26,36,53,8,39,47,54,86,3,16,21,34,52]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (31, '[[5,18,27,34,0,0,0,79,0],[0,13,26,35,0,56,0,77,0],[1,17,0,0,0,0,61,73,86]]'::jsonb, '[5,18,27,34,79,13,26,35,56,77,1,17,61,73,86]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (32, '[[0,18,0,0,40,59,60,0,89],[6,15,0,0,0,56,0,79,80],[0,12,0,33,44,54,69,0,0]]'::jsonb, '[18,40,59,60,89,6,15,56,79,80,12,33,44,54,69]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (33, '[[0,14,0,36,43,0,60,0,89],[7,0,24,37,42,0,0,0,82],[5,0,22,0,0,55,64,0,86]]'::jsonb, '[14,36,43,60,89,7,24,37,42,82,5,22,55,64,86]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (34, '[[5,12,0,30,0,0,65,0,82],[6,11,0,32,0,51,0,0,90],[0,18,0,37,42,0,64,0,81]]'::jsonb, '[5,12,30,65,82,6,11,32,51,90,18,37,42,64,81]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (35, '[[0,14,29,39,0,0,0,72,82],[8,10,26,0,46,0,68,0,0],[6,0,22,0,42,0,0,77,83]]'::jsonb, '[14,29,39,72,82,8,10,26,46,68,6,22,42,77,83]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (36, '[[8,0,0,35,0,52,0,77,82],[0,17,22,0,0,54,0,76,87],[6,16,0,0,42,0,60,0,85]]'::jsonb, '[8,35,52,77,82,17,22,54,76,87,6,16,42,60,85]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (37, '[[2,18,0,31,0,59,0,0,90],[0,17,0,0,0,58,66,74,83],[3,0,26,37,0,55,65,0,0]]'::jsonb, '[2,18,31,59,90,17,58,66,74,83,3,26,37,55,65]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (38, '[[0,0,0,37,49,0,67,75,82],[7,0,0,38,0,0,69,73,81],[4,0,0,30,0,0,63,74,80]]'::jsonb, '[37,49,67,75,82,7,38,69,73,81,4,30,63,74,80]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (39, '[[8,0,24,38,0,0,0,71,81],[7,11,0,0,0,56,0,75,87],[0,18,23,34,45,50,0,0,0]]'::jsonb, '[8,24,38,71,81,7,11,56,75,87,18,23,34,45,50]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (40, '[[0,0,0,35,44,56,68,73,0],[0,0,28,33,42,57,0,70,0],[0,17,0,34,43,59,0,0,86]]'::jsonb, '[35,44,56,68,73,28,33,42,57,70,17,34,43,59,86]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (41, '[[0,14,0,31,0,53,0,75,90],[0,0,0,0,49,59,60,76,87],[4,0,27,0,42,0,68,0,89]]'::jsonb, '[14,31,53,75,90,49,59,60,76,87,4,27,42,68,89]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (42, '[[1,0,27,0,48,50,0,0,86],[9,0,28,39,41,0,0,74,0],[4,14,24,0,0,0,0,76,84]]'::jsonb, '[1,27,48,50,86,9,28,39,41,74,4,14,24,76,84]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (43, '[[0,13,0,0,41,54,0,79,80],[0,0,0,31,43,0,69,77,86],[6,12,0,37,0,0,65,0,82]]'::jsonb, '[13,41,54,79,80,31,43,69,77,86,6,12,37,65,82]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (44, '[[7,14,24,0,0,0,67,72,0],[8,15,0,0,42,58,0,71,0],[0,18,0,39,41,0,65,0,87]]'::jsonb, '[7,14,24,67,72,8,15,42,58,71,18,39,41,65,87]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (45, '[[0,0,21,38,47,0,0,70,80],[0,11,0,0,0,54,67,77,83],[9,14,0,37,0,0,61,0,86]]'::jsonb, '[21,38,47,70,80,11,54,67,77,83,9,14,37,61,86]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (46, '[[0,15,0,0,42,51,65,70,0],[6,0,0,36,44,59,61,0,0],[0,17,23,37,0,0,0,79,89]]'::jsonb, '[15,42,51,65,70,6,36,44,59,61,17,23,37,79,89]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (47, '[[8,0,28,0,0,54,65,0,85],[0,13,0,30,45,52,0,0,89],[0,15,0,0,43,50,60,72,0]]'::jsonb, '[8,28,54,65,85,13,30,45,52,89,15,43,50,60,72]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (48, '[[7,0,28,0,0,52,65,0,81],[6,10,0,31,46,0,0,0,87],[0,17,0,0,44,53,0,74,80]]'::jsonb, '[7,28,52,65,81,6,10,31,46,87,17,44,53,74,80]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (49, '[[5,0,26,36,45,0,0,0,85],[0,15,20,0,49,57,0,79,0],[7,18,22,32,0,0,0,0,86]]'::jsonb, '[5,26,36,45,85,15,20,49,57,79,7,18,22,32,86]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (50, '[[0,10,25,37,0,0,0,72,83],[0,16,0,0,43,58,0,73,80],[0,0,0,38,40,55,0,70,87]]'::jsonb, '[10,25,37,72,83,16,43,58,73,80,38,40,55,70,87]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (51, '[[6,0,25,35,0,0,62,0,81],[0,12,0,0,0,50,61,78,83],[4,0,24,0,0,53,0,74,82]]'::jsonb, '[6,25,35,62,81,12,50,61,78,83,4,24,53,74,82]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (52, '[[2,11,0,33,45,0,0,0,84],[0,15,0,36,49,58,0,75,0],[0,0,28,34,46,0,63,72,0]]'::jsonb, '[2,11,33,45,84,15,36,49,58,75,28,34,46,63,72]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (53, '[[2,0,25,33,0,51,0,0,88],[5,11,0,31,43,0,0,0,83],[1,0,23,36,0,57,65,0,0]]'::jsonb, '[2,25,33,51,88,5,11,31,43,83,1,23,36,57,65]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (54, '[[8,0,28,37,44,0,0,0,88],[0,0,27,0,41,56,62,0,86],[0,12,25,0,47,0,66,70,0]]'::jsonb, '[8,28,37,44,88,27,41,56,62,86,12,25,47,66,70]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (55, '[[3,0,27,33,47,0,0,0,82],[9,0,0,0,0,55,63,71,80],[6,18,0,0,48,56,0,0,90]]'::jsonb, '[3,27,33,47,82,9,55,63,71,80,6,18,48,56,90]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (56, '[[0,18,0,35,0,0,66,74,84],[2,16,28,0,48,0,63,0,0],[3,0,29,31,0,54,60,0,0]]'::jsonb, '[18,35,66,74,84,2,16,28,48,63,3,29,31,54,60]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (57, '[[1,0,0,37,0,57,0,74,84],[2,0,22,38,0,0,62,72,0],[3,0,21,35,0,0,0,78,87]]'::jsonb, '[1,37,57,74,84,2,22,38,62,72,3,21,35,78,87]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (58, '[[0,0,0,35,41,57,0,74,90],[0,13,23,0,47,0,68,77,0],[8,0,21,0,49,0,62,0,88]]'::jsonb, '[35,41,57,74,90,13,23,47,68,77,8,21,49,62,88]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (59, '[[3,13,0,35,42,0,63,0,0],[6,18,28,32,0,0,0,0,80],[0,0,26,0,41,54,0,70,85]]'::jsonb, '[3,13,35,42,63,6,18,28,32,80,26,41,54,70,85]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (60, '[[0,10,0,0,43,0,65,73,86],[5,0,23,0,42,50,0,78,0],[0,17,0,0,46,0,66,70,81]]'::jsonb, '[10,43,65,73,86,5,23,42,50,78,17,46,66,70,81]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (61, '[[7,11,24,0,0,51,67,0,0],[0,13,0,0,42,59,62,72,0],[9,0,0,0,45,50,0,77,87]]'::jsonb, '[7,11,24,51,67,13,42,59,62,72,9,45,50,77,87]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (62, '[[0,10,26,0,0,53,63,0,81],[0,18,21,33,43,54,0,0,0],[0,0,25,0,41,50,67,0,90]]'::jsonb, '[10,26,53,63,81,18,21,33,43,54,25,41,50,67,90]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (63, '[[0,13,20,32,45,0,69,0,0],[0,12,27,31,0,51,65,0,0],[0,0,0,39,0,53,66,71,84]]'::jsonb, '[13,20,32,45,69,12,27,31,51,65,39,53,66,71,84]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (64, '[[8,0,0,35,44,53,0,71,0],[0,14,25,0,0,59,62,70,0],[0,0,0,30,45,56,67,74,0]]'::jsonb, '[8,35,44,53,71,14,25,59,62,70,30,45,56,67,74]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (65, '[[6,12,24,34,0,0,0,0,84],[1,11,0,33,0,59,0,73,0],[0,0,27,36,0,54,61,0,88]]'::jsonb, '[6,12,24,34,84,1,11,33,59,73,27,36,54,61,88]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (66, '[[0,18,0,0,48,58,0,74,81],[8,0,0,37,47,53,67,0,0],[0,11,0,0,44,50,69,79,0]]'::jsonb, '[18,48,58,74,81,8,37,47,53,67,11,44,50,69,79]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (67, '[[0,17,22,38,0,59,0,0,84],[0,11,28,35,47,0,0,78,0],[0,16,24,0,42,53,0,0,87]]'::jsonb, '[17,22,38,59,84,11,28,35,47,78,16,24,42,53,87]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (68, '[[6,10,0,0,42,0,64,0,83],[1,0,0,30,0,54,65,71,0],[2,14,0,36,0,58,62,0,0]]'::jsonb, '[6,10,42,64,83,1,30,54,65,71,2,14,36,58,62]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (69, '[[9,10,0,37,0,0,64,72,0],[6,15,0,35,40,0,0,78,0],[7,19,29,0,43,0,0,75,0]]'::jsonb, '[9,10,37,64,72,6,15,35,40,78,7,19,29,43,75]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (70, '[[0,17,23,30,0,0,61,0,84],[8,0,26,0,40,0,0,73,88],[7,11,0,36,0,56,0,0,83]]'::jsonb, '[17,23,30,61,84,8,26,40,73,88,7,11,36,56,83]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (71, '[[7,19,0,31,48,0,0,0,90],[0,0,20,36,0,0,61,75,84],[0,14,0,30,45,0,64,0,89]]'::jsonb, '[7,19,31,48,90,20,36,61,75,84,14,30,45,64,89]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (72, '[[1,0,28,0,0,58,69,76,0],[0,18,0,32,43,0,0,74,87],[4,13,0,38,0,50,64,0,0]]'::jsonb, '[1,28,58,69,76,18,32,43,74,87,4,13,38,50,64]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (73, '[[1,10,0,0,0,59,67,74,0],[8,16,20,0,0,0,61,79,0],[7,17,0,38,0,55,0,0,90]]'::jsonb, '[1,10,59,67,74,8,16,20,61,79,7,17,38,55,90]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (74, '[[0,16,29,0,47,0,0,78,85],[6,13,0,30,0,0,69,72,0],[1,0,21,0,44,0,0,74,87]]'::jsonb, '[16,29,47,78,85,6,13,30,69,72,1,21,44,74,87]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (75, '[[0,0,0,36,45,0,69,78,84],[0,18,27,35,0,57,0,0,80],[3,0,20,0,49,53,0,74,0]]'::jsonb, '[36,45,69,78,84,18,27,35,57,80,3,20,49,53,74]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (76, '[[9,12,28,37,0,0,0,0,81],[0,0,26,31,46,0,62,70,0],[1,0,0,0,47,0,68,72,90]]'::jsonb, '[9,12,28,37,81,26,31,46,62,70,1,47,68,72,90]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (77, '[[2,15,0,33,0,0,69,0,84],[0,13,0,35,49,0,65,0,89],[3,0,0,38,47,0,0,76,80]]'::jsonb, '[2,15,33,69,84,13,35,49,65,89,3,38,47,76,80]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (78, '[[5,13,0,34,0,53,0,0,88],[0,17,27,0,48,0,69,79,0],[0,0,0,35,0,51,62,70,80]]'::jsonb, '[5,13,34,53,88,17,27,48,69,79,35,51,62,70,80]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (79, '[[0,0,25,0,44,0,67,74,85],[4,0,22,0,43,50,0,77,0],[0,18,20,38,0,0,60,70,0]]'::jsonb, '[25,44,67,74,85,4,22,43,50,77,18,20,38,60,70]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (80, '[[0,15,0,34,44,0,66,72,0],[1,0,0,0,48,57,60,78,0],[9,11,28,30,0,0,0,0,87]]'::jsonb, '[15,34,44,66,72,1,48,57,60,78,9,11,28,30,87]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (81, '[[3,0,0,34,0,59,69,77,0],[1,18,0,0,0,0,63,76,85],[0,0,0,30,47,51,0,74,90]]'::jsonb, '[3,34,59,69,77,1,18,63,76,85,30,47,51,74,90]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (82, '[[0,13,27,30,0,59,0,75,0],[0,0,22,0,49,50,68,0,81],[0,0,21,32,41,0,63,70,0]]'::jsonb, '[13,27,30,59,75,22,49,50,68,81,21,32,41,63,70]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (83, '[[0,17,0,35,40,53,0,75,0],[0,13,0,36,0,50,68,71,0],[4,0,21,33,47,0,0,0,83]]'::jsonb, '[17,35,40,53,75,13,36,50,68,71,4,21,33,47,83]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (84, '[[8,15,0,39,0,57,0,0,85],[0,0,25,33,0,0,64,74,81],[9,13,0,0,0,58,0,76,80]]'::jsonb, '[8,15,39,57,85,25,33,64,74,81,9,13,58,76,80]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (85, '[[2,19,29,0,0,0,0,74,87],[0,0,27,34,45,0,0,72,83],[0,16,24,30,40,0,69,0,0]]'::jsonb, '[2,19,29,74,87,27,34,45,72,83,16,24,30,40,69]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (86, '[[0,0,24,0,47,0,63,77,82],[6,0,0,30,46,58,0,70,0],[7,15,0,0,45,0,0,71,80]]'::jsonb, '[24,47,63,77,82,6,30,46,58,70,7,15,45,71,80]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (87, '[[6,10,0,30,41,0,0,70,0],[5,0,0,35,48,57,66,0,0],[3,12,25,0,0,0,61,0,90]]'::jsonb, '[6,10,30,41,70,5,35,48,57,66,3,12,25,61,90]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (88, '[[5,0,29,34,41,0,0,78,0],[0,0,23,31,43,59,0,0,88],[0,11,0,39,0,0,65,72,83]]'::jsonb, '[5,29,34,41,78,23,31,43,59,88,11,39,65,72,83]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (89, '[[8,0,20,0,47,51,0,78,0],[6,16,0,31,0,55,0,0,85],[9,10,0,37,0,58,67,0,0]]'::jsonb, '[8,20,47,51,78,6,16,31,55,85,9,10,37,58,67]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (90, '[[0,11,0,0,0,53,62,71,81],[0,0,0,31,42,51,0,79,88],[6,0,29,0,0,0,69,76,82]]'::jsonb, '[11,53,62,71,81,31,42,51,79,88,6,29,69,76,82]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (91, '[[0,18,0,39,44,52,0,0,85],[0,11,29,35,0,0,0,77,87],[2,0,25,0,0,58,64,72,0]]'::jsonb, '[18,39,44,52,85,11,29,35,77,87,2,25,58,64,72]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (92, '[[1,0,29,33,0,0,61,78,0],[8,0,20,0,0,52,0,73,86],[0,0,0,37,0,54,60,79,82]]'::jsonb, '[1,29,33,61,78,8,20,52,73,86,37,54,60,79,82]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (93, '[[1,18,26,0,0,55,0,0,82],[0,0,25,31,0,0,62,79,86],[0,15,0,30,0,0,67,73,83]]'::jsonb, '[1,18,26,55,82,25,31,62,79,86,15,30,67,73,83]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (94, '[[0,0,20,36,40,53,0,0,85],[0,14,22,30,41,54,0,0,0],[0,0,0,0,45,52,61,77,83]]'::jsonb, '[20,36,40,53,85,14,22,30,41,54,45,52,61,77,83]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (95, '[[3,0,28,0,40,55,0,73,0],[8,19,0,30,0,51,0,72,0],[9,16,27,0,0,0,65,75,0]]'::jsonb, '[3,28,40,55,73,8,19,30,51,72,9,16,27,65,75]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (96, '[[4,10,0,39,49,0,0,0,84],[0,13,26,37,40,0,0,71,0],[2,15,20,0,0,0,61,0,80]]'::jsonb, '[4,10,39,49,84,13,26,37,40,71,2,15,20,61,80]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (97, '[[5,0,27,30,0,58,0,0,81],[4,0,23,0,0,53,65,0,82],[7,15,22,38,0,0,63,0,0]]'::jsonb, '[5,27,30,58,81,4,23,53,65,82,7,15,22,38,63]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (98, '[[9,14,0,33,46,50,0,0,0],[7,0,0,0,47,54,63,0,87],[6,0,25,0,42,53,0,71,0]]'::jsonb, '[9,14,33,46,50,7,47,54,63,87,6,25,42,53,71]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (99, '[[2,0,0,31,0,0,67,74,90],[0,0,21,32,0,56,69,78,0],[3,0,22,34,0,0,0,71,83]]'::jsonb, '[2,31,67,74,90,21,32,56,69,78,3,22,34,71,83]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (100, '[[0,15,0,0,42,58,61,0,82],[9,0,0,30,45,55,0,76,0],[5,10,20,37,0,0,67,0,0]]'::jsonb, '[15,42,58,61,82,9,30,45,55,76,5,10,20,37,67]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (101, '[[3,18,20,0,0,0,69,74,0],[0,19,22,0,40,53,0,72,0],[5,0,24,36,0,59,0,0,86]]'::jsonb, '[3,18,20,69,74,19,22,40,53,72,5,24,36,59,86]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (102, '[[4,16,0,0,0,56,69,0,81],[6,0,23,31,0,0,67,0,87],[0,0,24,0,46,58,64,0,85]]'::jsonb, '[4,16,56,69,81,6,23,31,67,87,24,46,58,64,85]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (103, '[[0,0,24,0,45,0,66,78,83],[0,13,27,37,0,0,63,74,0],[0,0,28,39,41,0,62,0,85]]'::jsonb, '[24,45,66,78,83,13,27,37,63,74,28,39,41,62,85]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (104, '[[5,0,0,35,0,52,0,72,84],[4,0,0,39,0,57,69,0,86],[2,0,22,31,0,0,0,70,90]]'::jsonb, '[5,35,52,72,84,4,39,57,69,86,2,22,31,70,90]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (105, '[[0,19,0,31,47,55,68,0,0],[2,12,21,35,46,0,0,0,0],[6,18,0,37,48,0,65,0,0]]'::jsonb, '[19,31,47,55,68,2,12,21,35,46,6,18,37,48,65]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (106, '[[4,0,21,0,49,0,64,0,82],[5,0,29,32,46,57,0,0,0],[3,15,0,38,0,51,0,77,0]]'::jsonb, '[4,21,49,64,82,5,29,32,46,57,3,15,38,51,77]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (107, '[[3,10,0,0,42,0,0,72,90],[0,11,0,39,44,0,63,73,0],[1,18,0,30,47,0,60,0,0]]'::jsonb, '[3,10,42,72,90,11,39,44,63,73,1,18,30,47,60]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (108, '[[0,0,0,0,48,50,67,71,81],[4,0,28,34,43,0,0,78,0],[0,0,24,38,0,0,65,72,80]]'::jsonb, '[48,50,67,71,81,4,28,34,43,78,24,38,65,72,80]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (109, '[[8,16,0,37,47,0,66,0,0],[0,0,28,35,45,58,0,0,83],[0,0,26,31,48,59,0,0,81]]'::jsonb, '[8,16,37,47,66,28,35,45,58,83,26,31,48,59,81]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (110, '[[0,0,23,34,46,0,63,0,81],[9,18,0,31,42,50,0,0,0],[2,10,0,33,0,0,69,75,0]]'::jsonb, '[23,34,46,63,81,9,18,31,42,50,2,10,33,69,75]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (111, '[[7,0,23,0,45,51,0,78,0],[5,0,28,36,0,0,64,72,0],[9,18,0,31,46,56,0,0,0]]'::jsonb, '[7,23,45,51,78,5,28,36,64,72,9,18,31,46,56]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (112, '[[0,19,27,36,46,0,63,0,0],[1,0,23,32,41,0,67,0,0],[4,0,29,38,42,0,0,0,81]]'::jsonb, '[19,27,36,46,63,1,23,32,41,67,4,29,38,42,81]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (113, '[[0,0,0,0,41,54,68,73,81],[0,0,28,36,0,59,0,75,85],[6,0,0,33,0,56,67,0,89]]'::jsonb, '[41,54,68,73,81,28,36,59,75,85,6,33,56,67,89]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (114, '[[0,12,23,0,47,50,0,0,83],[0,17,0,30,0,0,67,79,90],[0,0,0,36,40,0,69,75,85]]'::jsonb, '[12,23,47,50,83,17,30,67,79,90,36,40,69,75,85]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (115, '[[0,0,25,39,0,0,69,79,86],[5,13,0,33,46,0,0,72,0],[0,0,24,36,47,57,0,74,0]]'::jsonb, '[25,39,69,79,86,5,13,33,46,72,24,36,47,57,74]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (116, '[[0,17,0,0,43,53,0,71,90],[2,11,0,38,0,58,0,0,89],[1,13,24,34,0,0,62,0,0]]'::jsonb, '[17,43,53,71,90,2,11,38,58,89,1,13,24,34,62]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (117, '[[0,0,25,0,46,55,61,75,0],[4,0,20,0,0,51,0,78,80],[1,0,29,39,44,0,67,0,0]]'::jsonb, '[25,46,55,61,75,4,20,51,78,80,1,29,39,44,67]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (118, '[[0,16,24,34,45,0,0,79,0],[0,10,0,0,0,57,64,76,83],[2,0,20,35,0,53,61,0,0]]'::jsonb, '[16,24,34,45,79,10,57,64,76,83,2,20,35,53,61]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (119, '[[1,0,0,36,48,58,0,0,86],[4,0,22,38,0,53,0,0,87],[0,0,23,0,45,50,0,70,89]]'::jsonb, '[1,36,48,58,86,4,22,38,53,87,23,45,50,70,89]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (120, '[[4,15,0,0,46,50,0,72,0],[0,12,25,0,0,58,60,0,84],[0,13,0,31,0,0,63,70,85]]'::jsonb, '[4,15,46,50,72,12,25,58,60,84,13,31,63,70,85]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (121, '[[7,16,0,0,0,0,62,73,90],[0,19,21,38,43,0,0,0,88],[4,0,0,32,48,52,0,76,0]]'::jsonb, '[7,16,62,73,90,19,21,38,43,88,4,32,48,52,76]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (122, '[[7,0,23,35,0,58,61,0,0],[9,0,20,0,0,59,63,0,88],[0,0,27,37,44,0,62,70,0]]'::jsonb, '[7,23,35,58,61,9,20,59,63,88,27,37,44,62,70]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (123, '[[4,15,0,0,0,0,68,70,88],[5,14,0,0,47,0,61,0,87],[0,19,0,0,42,0,67,71,86]]'::jsonb, '[4,15,68,70,88,5,14,47,61,87,19,42,67,71,86]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (124, '[[6,11,0,30,0,0,65,0,86],[9,0,24,0,48,0,66,79,0],[5,15,0,36,0,53,0,0,89]]'::jsonb, '[6,11,30,65,86,9,24,48,66,79,5,15,36,53,89]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (125, '[[0,0,20,31,0,58,68,78,0],[0,0,21,35,0,0,62,76,86],[0,15,22,0,42,0,0,72,90]]'::jsonb, '[20,31,58,68,78,21,35,62,76,86,15,22,42,72,90]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (126, '[[2,0,23,33,0,53,0,73,0],[0,0,25,38,45,54,0,71,0],[0,16,0,35,41,0,68,77,0]]'::jsonb, '[2,23,33,53,73,25,38,45,54,71,16,35,41,68,77]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (127, '[[5,0,25,31,41,0,0,0,85],[1,0,20,0,0,0,62,77,83],[2,0,28,0,47,56,61,0,0]]'::jsonb, '[5,25,31,41,85,1,20,62,77,83,2,28,47,56,61]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (128, '[[0,0,0,0,46,51,61,73,85],[0,10,29,31,49,58,0,0,0],[7,0,28,0,48,55,0,0,89]]'::jsonb, '[46,51,61,73,85,10,29,31,49,58,7,28,48,55,89]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (129, '[[0,18,0,38,45,50,0,0,88],[0,19,20,36,49,0,60,0,0],[9,11,0,31,0,52,0,0,87]]'::jsonb, '[18,38,45,50,88,19,20,36,49,60,9,11,31,52,87]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (130, '[[8,0,29,34,0,0,0,70,83],[9,0,0,35,49,0,0,79,84],[5,0,26,30,0,0,69,0,88]]'::jsonb, '[8,29,34,70,83,9,35,49,79,84,5,26,30,69,88]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (131, '[[5,0,0,0,44,0,60,79,88],[0,0,20,37,43,51,0,74,0],[6,18,21,0,42,0,0,0,80]]'::jsonb, '[5,44,60,79,88,20,37,43,51,74,6,18,21,42,80]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (132, '[[4,19,25,35,0,0,0,0,85],[0,0,22,0,44,52,69,0,89],[7,0,0,0,0,59,64,77,87]]'::jsonb, '[4,19,25,35,85,22,44,52,69,89,7,59,64,77,87]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (133, '[[2,0,0,31,0,50,0,73,90],[0,11,28,0,0,0,67,72,80],[0,18,29,0,0,0,62,78,88]]'::jsonb, '[2,31,50,73,90,11,28,67,72,80,18,29,62,78,88]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (134, '[[0,0,0,0,45,51,67,76,81],[3,11,0,0,47,56,69,0,0],[9,17,0,34,43,0,0,0,86]]'::jsonb, '[45,51,67,76,81,3,11,47,56,69,9,17,34,43,86]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (135, '[[5,11,0,36,48,53,0,0,0],[3,0,0,0,45,55,0,77,84],[0,13,0,34,0,54,0,78,88]]'::jsonb, '[5,11,36,48,53,3,45,55,77,84,13,34,54,78,88]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (136, '[[0,16,0,0,46,50,64,0,89],[0,18,27,37,0,58,0,78,0],[8,19,29,30,0,0,0,70,0]]'::jsonb, '[16,46,50,64,89,18,27,37,58,78,8,19,29,30,70]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (137, '[[4,14,0,34,0,55,0,76,0],[0,0,23,0,0,50,61,77,82],[3,15,0,0,0,54,65,0,89]]'::jsonb, '[4,14,34,55,76,23,50,61,77,82,3,15,54,65,89]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (138, '[[2,0,0,38,49,0,0,73,86],[0,19,21,0,0,52,60,0,83],[4,11,0,32,47,59,0,0,0]]'::jsonb, '[2,38,49,73,86,19,21,52,60,83,4,11,32,47,59]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (139, '[[7,0,22,0,43,0,67,0,89],[3,0,23,0,0,57,68,72,0],[0,19,24,32,48,0,0,78,0]]'::jsonb, '[7,22,43,67,89,3,23,57,68,72,19,24,32,48,78]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (140, '[[7,10,0,0,44,56,0,77,0],[3,18,0,32,0,0,67,0,85],[0,15,0,38,0,55,66,0,80]]'::jsonb, '[7,10,44,56,77,3,18,32,67,85,15,38,55,66,80]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (141, '[[2,19,0,0,0,0,64,77,90],[0,15,0,35,45,0,63,79,0],[3,0,0,38,0,54,66,0,85]]'::jsonb, '[2,19,64,77,90,15,35,45,63,79,3,38,54,66,85]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (142, '[[7,13,24,34,42,0,0,0,0],[6,16,0,0,40,53,0,70,0],[2,10,28,0,0,58,63,0,0]]'::jsonb, '[7,13,24,34,42,6,16,40,53,70,2,10,28,58,63]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (143, '[[1,14,25,32,0,0,0,0,83],[0,0,26,0,48,53,61,0,90],[4,15,20,0,42,0,0,0,89]]'::jsonb, '[1,14,25,32,83,26,48,53,61,90,4,15,20,42,89]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (144, '[[0,15,0,32,0,59,69,0,88],[2,10,24,0,41,56,0,0,0],[0,0,25,37,43,0,65,0,90]]'::jsonb, '[15,32,59,69,88,2,10,24,41,56,25,37,43,65,90]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (145, '[[0,10,0,0,47,54,0,73,84],[0,0,21,31,40,0,0,72,80],[0,15,25,36,0,0,0,76,85]]'::jsonb, '[10,47,54,73,84,21,31,40,72,80,15,25,36,76,85]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (146, '[[8,11,27,37,0,0,0,73,0],[0,19,0,34,43,0,60,70,0],[0,12,25,0,0,56,62,0,83]]'::jsonb, '[8,11,27,37,73,19,34,43,60,70,12,25,56,62,83]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (147, '[[0,0,20,33,42,0,65,0,82],[0,0,21,39,0,0,61,72,88],[0,0,24,30,41,50,0,0,80]]'::jsonb, '[20,33,42,65,82,21,39,61,72,88,24,30,41,50,80]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (148, '[[7,17,0,0,0,0,60,71,85],[0,11,23,0,42,0,69,73,0],[5,0,0,33,0,0,67,77,83]]'::jsonb, '[7,17,60,71,85,11,23,42,69,73,5,33,67,77,83]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (149, '[[0,17,22,0,44,58,0,74,0],[8,18,20,0,0,0,62,0,86],[6,13,0,0,49,52,0,73,0]]'::jsonb, '[17,22,44,58,74,8,18,20,62,86,6,13,49,52,73]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (150, '[[1,13,29,0,45,0,67,0,0],[7,0,0,0,48,0,66,79,88],[0,0,21,31,43,0,65,70,0]]'::jsonb, '[1,13,29,45,67,7,48,66,79,88,21,31,43,65,70]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (151, '[[0,17,0,33,0,0,61,74,82],[0,18,0,31,43,53,0,76,0],[1,0,29,35,40,0,63,0,0]]'::jsonb, '[17,33,61,74,82,18,31,43,53,76,1,29,35,40,63]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (152, '[[2,0,27,0,0,54,69,0,89],[0,0,20,35,0,53,0,70,90],[8,0,24,0,0,51,65,78,0]]'::jsonb, '[2,27,54,69,89,20,35,53,70,90,8,24,51,65,78]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (153, '[[0,0,0,37,42,50,68,0,85],[5,0,0,0,41,51,0,70,80],[2,0,0,31,0,54,0,73,90]]'::jsonb, '[37,42,50,68,85,5,41,51,70,80,2,31,54,73,90]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (154, '[[0,0,28,30,47,0,61,0,88],[0,0,0,32,44,0,68,70,82],[9,0,22,38,49,59,0,0,0]]'::jsonb, '[28,30,47,61,88,32,44,68,70,82,9,22,38,49,59]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (155, '[[6,0,0,35,42,57,67,0,0],[3,0,0,30,41,54,0,77,0],[7,0,0,38,40,0,66,0,82]]'::jsonb, '[6,35,42,57,67,3,30,41,54,77,7,38,40,66,82]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (156, '[[0,18,24,31,41,0,0,73,0],[0,0,26,33,49,0,0,72,84],[8,0,27,0,0,52,0,77,80]]'::jsonb, '[18,24,31,41,73,26,33,49,72,84,8,27,52,77,80]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (157, '[[8,0,0,35,42,0,0,73,89],[4,11,0,0,0,54,68,79,0],[9,0,0,32,0,50,69,0,85]]'::jsonb, '[8,35,42,73,89,4,11,54,68,79,9,32,50,69,85]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (158, '[[0,17,0,36,0,55,0,75,82],[1,10,0,32,42,0,0,0,86],[8,0,0,0,48,56,60,0,80]]'::jsonb, '[17,36,55,75,82,1,10,32,42,86,8,48,56,60,80]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (159, '[[7,0,0,35,44,0,0,71,83],[0,11,25,30,47,0,69,0,0],[3,13,0,0,48,59,0,0,84]]'::jsonb, '[7,35,44,71,83,11,25,30,47,69,3,13,48,59,84]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (160, '[[1,0,27,37,0,0,0,71,83],[0,19,0,32,45,52,60,0,0],[0,0,22,0,41,56,67,79,0]]'::jsonb, '[1,27,37,71,83,19,32,45,52,60,22,41,56,67,79]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (161, '[[0,0,0,0,47,57,60,77,81],[0,17,26,37,42,0,0,0,90],[0,16,24,34,44,0,62,0,0]]'::jsonb, '[47,57,60,77,81,17,26,37,42,90,16,24,34,44,62]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (162, '[[0,0,27,34,0,52,0,73,87],[0,15,26,30,0,54,67,0,0],[0,17,25,39,44,0,0,75,0]]'::jsonb, '[27,34,52,73,87,15,26,30,54,67,17,25,39,44,75]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (163, '[[0,16,22,0,43,58,0,70,0],[0,13,28,0,0,57,0,76,87],[7,0,0,0,49,54,0,74,83]]'::jsonb, '[16,22,43,58,70,13,28,57,76,87,7,49,54,74,83]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (164, '[[2,19,0,0,40,0,63,70,0],[8,11,0,0,44,0,0,77,86],[0,12,0,38,45,0,69,0,83]]'::jsonb, '[2,19,40,63,70,8,11,44,77,86,12,38,45,69,83]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (165, '[[7,10,0,0,47,54,0,0,89],[6,16,0,31,41,59,0,0,0],[0,0,28,0,49,50,61,74,0]]'::jsonb, '[7,10,47,54,89,6,16,31,41,59,28,49,50,61,74]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (166, '[[3,0,0,36,0,58,65,76,0],[2,0,27,31,0,55,67,0,0],[1,0,0,30,49,53,0,77,0]]'::jsonb, '[3,36,58,65,76,2,27,31,55,67,1,30,49,53,77]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (167, '[[0,14,0,34,44,0,67,0,85],[0,16,23,36,43,55,0,0,0],[0,17,20,30,45,0,69,0,0]]'::jsonb, '[14,34,44,67,85,16,23,36,43,55,17,20,30,45,69]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (168, '[[0,17,0,32,0,56,61,0,81],[0,16,0,30,47,0,62,78,0],[2,0,0,36,46,0,0,74,80]]'::jsonb, '[17,32,56,61,81,16,30,47,62,78,2,36,46,74,80]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (169, '[[0,0,27,0,0,59,69,72,84],[0,0,20,39,48,0,0,74,82],[0,17,25,36,0,0,64,0,87]]'::jsonb, '[27,59,69,72,84,20,39,48,74,82,17,25,36,64,87]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (170, '[[0,18,28,31,49,0,60,0,0],[0,11,26,34,0,0,69,72,0],[6,15,0,33,0,55,0,0,86]]'::jsonb, '[18,28,31,49,60,11,26,34,69,72,6,15,33,55,86]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (171, '[[0,13,21,39,0,0,0,79,90],[0,15,22,35,0,54,0,75,0],[0,17,23,32,0,0,67,73,0]]'::jsonb, '[13,21,39,79,90,15,22,35,54,75,17,23,32,67,73]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (172, '[[0,11,0,33,41,0,65,78,0],[0,13,27,32,0,0,64,77,0],[0,17,21,0,0,50,66,0,85]]'::jsonb, '[11,33,41,65,78,13,27,32,64,77,17,21,50,66,85]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (173, '[[6,0,23,0,0,51,63,78,0],[5,0,21,38,46,50,0,0,0],[0,0,0,33,0,55,61,75,80]]'::jsonb, '[6,23,51,63,78,5,21,38,46,50,33,55,61,75,80]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (174, '[[0,16,27,33,0,0,0,70,84],[0,15,0,39,45,0,0,76,83],[2,0,28,34,48,0,62,0,0]]'::jsonb, '[16,27,33,70,84,15,39,45,76,83,2,28,34,48,62]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (175, '[[1,19,0,32,43,0,0,75,0],[0,0,23,37,46,0,62,71,0],[3,0,0,0,48,0,60,77,85]]'::jsonb, '[1,19,32,43,75,23,37,46,62,71,3,48,60,77,85]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (176, '[[7,0,22,0,41,0,66,77,0],[0,0,0,34,46,57,61,0,83],[3,0,0,0,43,53,0,79,90]]'::jsonb, '[7,22,41,66,77,34,46,57,61,83,3,43,53,79,90]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (177, '[[3,15,22,36,42,0,0,0,0],[0,19,21,0,41,0,63,0,89],[2,16,0,31,46,0,69,0,0]]'::jsonb, '[3,15,22,36,42,19,21,41,63,89,2,16,31,46,69]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (178, '[[0,17,0,35,47,54,0,0,85],[6,0,23,0,44,0,65,0,87],[0,12,0,38,40,50,67,0,0]]'::jsonb, '[17,35,47,54,85,6,23,44,65,87,12,38,40,50,67]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (179, '[[0,18,0,0,43,0,66,74,86],[0,0,23,37,0,58,63,0,84],[2,0,22,0,45,0,0,75,90]]'::jsonb, '[18,43,66,74,86,23,37,58,63,84,2,22,45,75,90]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (180, '[[6,14,20,0,0,50,0,75,0],[4,17,24,0,43,0,0,0,88],[5,13,0,32,0,0,64,0,85]]'::jsonb, '[6,14,20,50,75,4,17,24,43,88,5,13,32,64,85]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (181, '[[7,18,0,33,46,0,0,0,80],[0,11,0,0,40,51,60,0,88],[0,12,20,31,41,0,0,71,0]]'::jsonb, '[7,18,33,46,80,11,40,51,60,88,12,20,31,41,71]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (182, '[[0,0,26,31,49,0,69,72,0],[0,0,0,35,42,58,0,70,90],[0,0,20,30,0,56,0,73,84]]'::jsonb, '[26,31,49,69,72,35,42,58,70,90,20,30,56,73,84]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (183, '[[0,11,27,0,46,55,0,77,0],[8,0,28,0,0,54,0,75,82],[0,18,26,37,0,59,62,0,0]]'::jsonb, '[11,27,46,55,77,8,28,54,75,82,18,26,37,59,62]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (184, '[[9,0,27,0,0,50,63,71,0],[4,0,24,35,42,0,68,0,0],[0,0,0,31,41,59,0,70,85]]'::jsonb, '[9,27,50,63,71,4,24,35,42,68,31,41,59,70,85]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (185, '[[3,19,20,34,45,0,0,0,0],[4,12,23,0,0,55,0,0,86],[9,13,0,0,48,0,66,71,0]]'::jsonb, '[3,19,20,34,45,4,12,23,55,86,9,13,48,66,71]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (186, '[[6,14,0,38,44,59,0,0,0],[9,0,23,0,41,0,0,77,88],[0,0,24,39,40,55,0,0,90]]'::jsonb, '[6,14,38,44,59,9,23,41,77,88,24,39,40,55,90]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (187, '[[0,11,23,0,45,55,0,0,84],[5,0,25,0,41,0,67,70,0],[0,13,0,0,40,53,69,0,80]]'::jsonb, '[11,23,45,55,84,5,25,41,67,70,13,40,53,69,80]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (188, '[[0,15,0,33,49,0,0,79,85],[0,0,26,0,0,58,63,71,80],[0,0,29,0,41,0,64,75,83]]'::jsonb, '[15,33,49,79,85,26,58,63,71,80,29,41,64,75,83]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (189, '[[3,10,0,0,46,0,61,0,86],[0,16,28,35,0,0,64,73,0],[7,12,22,31,0,0,0,0,84]]'::jsonb, '[3,10,46,61,86,16,28,35,64,73,7,12,22,31,84]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (190, '[[0,16,0,0,41,55,62,73,0],[0,11,28,0,0,57,0,76,84],[9,10,21,0,0,0,0,75,86]]'::jsonb, '[16,41,55,62,73,11,28,57,76,84,9,10,21,75,86]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (191, '[[6,0,29,31,0,0,68,0,87],[5,0,0,38,48,0,64,0,80],[7,15,22,0,40,58,0,0,0]]'::jsonb, '[6,29,31,68,87,5,38,48,64,80,7,15,22,40,58]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (192, '[[3,18,0,31,43,51,0,0,0],[0,17,0,0,40,57,63,0,83],[0,13,0,35,0,0,60,72,82]]'::jsonb, '[3,18,31,43,51,17,40,57,63,83,13,35,60,72,82]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (193, '[[0,0,29,35,0,0,60,74,81],[0,14,21,0,47,57,68,0,0],[1,0,27,0,45,0,0,73,90]]'::jsonb, '[29,35,60,74,81,14,21,47,57,68,1,27,45,73,90]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (194, '[[0,15,0,33,44,0,60,0,86],[3,11,24,0,0,0,67,78,0],[2,0,21,38,0,0,65,0,83]]'::jsonb, '[15,33,44,60,86,3,11,24,67,78,2,21,38,65,83]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (195, '[[0,19,22,0,0,51,63,74,0],[4,0,21,37,42,0,66,0,0],[0,0,20,32,40,55,62,0,0]]'::jsonb, '[19,22,51,63,74,4,21,37,42,66,20,32,40,55,62]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (196, '[[1,0,0,0,44,58,67,0,81],[0,11,0,38,0,51,0,75,90],[4,14,0,36,0,53,63,0,0]]'::jsonb, '[1,44,58,67,81,11,38,51,75,90,4,14,36,53,63]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (197, '[[0,11,0,0,0,58,62,78,87],[3,19,0,36,0,56,0,0,80],[5,18,28,0,0,0,67,0,88]]'::jsonb, '[11,58,62,78,87,3,19,36,56,80,5,18,28,67,88]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (198, '[[0,10,0,34,47,0,0,75,81],[3,0,0,33,0,51,0,70,86],[9,14,0,0,41,54,0,0,84]]'::jsonb, '[10,34,47,75,81,3,33,51,70,86,9,14,41,54,84]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (199, '[[5,19,0,37,45,0,0,72,0],[7,0,26,31,0,0,0,74,86],[0,16,29,0,47,0,65,73,0]]'::jsonb, '[5,19,37,45,72,7,26,31,74,86,16,29,47,65,73]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  
+
+    INSERT INTO bingo_plates (plate_id, grid, numbers)
+    VALUES (200, '[[5,15,0,0,0,0,68,75,80],[3,0,26,0,41,0,63,0,88],[0,12,29,36,0,53,0,77,0]]'::jsonb, '[5,15,68,75,80,3,26,41,63,88,12,29,36,53,77]'::jsonb)
+    ON CONFLICT (plate_id) DO NOTHING;
+  

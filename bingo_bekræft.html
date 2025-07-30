@@ -135,7 +135,7 @@ form.addEventListener('submit', async e => {
     const result = await response.json();
 
     if (response.ok && result.plate_id) {
-      window.location.href = `plade.html?plate_id=${result.plate_id}`;
+      window.location.href = `plade.html?email=${encodeURIComponent(email)}`;
     } else {
       alert('Fejl: ' + (result.error || 'Kunne ikke hente plade'));
       success.style.display = 'none';
