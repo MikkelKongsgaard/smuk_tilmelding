@@ -4,7 +4,7 @@ const pool = new Pool({ connectionString: process.env.NETLIFY_DATABASE_URL });
 exports.handler = async (event) => {
   if (event.httpMethod === 'GET') {
     try {
-      const result = await pool.query('SELECT id, team_name, player_1, player_2, phone_number FROM spikeball_entries ORDER BY created_at DESC');
+      const result = await pool.query('SELECT id, team_name, player_1, player_2, phone_number FROM spikeball_entries ORDER BY created_at ASC');
       return {
         statusCode: 200,
         body: JSON.stringify(result.rows),
