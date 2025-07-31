@@ -1,93 +1,48 @@
-// netlify/functions/get-winners.js
 const { Pool } = require('pg');
 const pool = new Pool({ connectionString: process.env.NETLIFY_DATABASE_URL });
 
-exports.handler = async (event) => {
+exports.handler = async () => {
   try {
-    // Try to get winners from dedicated winners table first
-    try {
-      const winnersRes = await pool.query(`
-        SELECT email, win_type, timestamp 
-        FROM bingo_winners 
-        ORDER BY timestamp ASC
-      `);
-      
-      const winners = {
-        bingo: [],
-        twoRows: [],
-        oneRow: []
-      };
-      
-      winnersRes.rows.forEach(row => {
-        const winner = {
-          email: row.email,
-          timestamp: row.timestamp.toISOString()
-        };
-        
-        if (row.win_type === 'bingo') winners.bingo.push(winner);
-        else if (row.win_type === 'twoRows') winners.twoRows.push(winner);
-        else if (row.win_type === 'oneRow') winners.oneRow.push(winner);
-      });
-      
-      return {
-        statusCode: 200,
-        headers: {
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*'
-        },
-        body: JSON.stringify(winners)
-      };
-      
-    } catch (tableError) {
-      // Winners table doesn't exist, fall back to calculating from current game state
-      console.log('Winners table not found, calculating from current state');
-    }
+    // Fetch all claimed plates
+    const plateRes = await pool.query('SELECT claimed_by_email AS email, grid FROM bingo_plates WHERE claimed_by_email IS NOT NULL');
 
-    // Fallback: Calculate winners from current game state
-    const plateRes = await pool.query('SELECT claimed_by_email as email, grid FROM bingo_plates WHERE claimed_by_email IS NOT NULL');
+    // Fetch all called numbers
     const calledRes = await pool.query('SELECT number FROM called_numbers');
     const called = new Set(calledRes.rows.map(r => r.number));
 
     const winners = {
-      bingo: [],     // 3 rows (full plate)
-      twoRows: [],   // 2 rows
-      oneRow: []     // 1 row
+      bingo: [],
+      twoRows: [],
+      oneRow: []
     };
 
-    // Check each plate for wins
     for (const plate of plateRes.rows) {
-      const grid = plate.grid;
       const email = plate.email;
-      
-      // Count how many complete rows this plate has
-      const rowsMatched = grid.map(row => 
-        row.filter(n => n !== 0 && called.has(n)).length
-      );
-      const completeRows = rowsMatched.filter(count => count === 5).length;
+      const grid = typeof plate.grid === 'string' ? JSON.parse(plate.grid) : plate.grid;
 
-      // Add to appropriate winner category (highest category only)
+      const completeRows = grid.reduce((acc, row) => {
+        const matched = row.filter(n => n !== 0 && called.has(n)).length;
+        return acc + (matched === 5 ? 1 : 0);
+      }, 0);
+
+      const winnerEntry = {
+        email: email,
+        timestamp: new Date().toISOString()
+      };
+
       if (completeRows === 3) {
-        winners.bingo.push({
-          email: email,
-          timestamp: new Date().toISOString()
-        });
+        winners.bingo.push(winnerEntry);
       } else if (completeRows === 2) {
-        winners.twoRows.push({
-          email: email,
-          timestamp: new Date().toISOString()
-        });
+        winners.twoRows.push(winnerEntry);
       } else if (completeRows === 1) {
-        winners.oneRow.push({
-          email: email,
-          timestamp: new Date().toISOString()
-        });
+        winners.oneRow.push(winnerEntry);
       }
     }
 
-    // Sort by email for consistent ordering
-    winners.bingo.sort((a, b) => a.email.localeCompare(b.email));
-    winners.twoRows.sort((a, b) => a.email.localeCompare(b.email));
-    winners.oneRow.sort((a, b) => a.email.localeCompare(b.email));
+    // Optional: sort results by email
+    for (const key of Object.keys(winners)) {
+      winners[key].sort((a, b) => a.email.localeCompare(b.email));
+    }
 
     return {
       statusCode: 200,
@@ -97,12 +52,11 @@ exports.handler = async (event) => {
       },
       body: JSON.stringify(winners)
     };
-
   } catch (error) {
-    console.error('Error getting winners:', error);
+    console.error("Error computing winners:", error);
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: 'Serverfejl ved hentning af vindere' })
+      body: JSON.stringify({ error: 'Serverfejl ved beregning af vindere' })
     };
   }
 };
