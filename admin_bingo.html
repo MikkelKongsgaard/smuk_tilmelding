@@ -195,6 +195,7 @@
             });
             document.getElementById("newNumber").value = "";
             loadCalledNumbers();
+            loadWinners(); // Update winners after adding a new number
         }
 
         async function removeSelectedNumber() {
@@ -208,6 +209,7 @@
             });
             selectedNumber = null;
             loadCalledNumbers();
+            loadWinners(); // Update winners after removing a number
         }
 
         async function checkPlate() {
