@@ -1,5 +1,5 @@
 /admin.html
-  Basic-Auth: Fællesskaberne2025 8660
+  Basic-Auth: {{ADMIN_USERNAME}} {{ADMIN_PASSWORD}}
 
 /admin_bingo.html
-  Basic-Auth: Fællesskaberne2025 8660
+  Basic-Auth: {{ADMIN_USERNAME}} {{ADMIN_PASSWORD}}
