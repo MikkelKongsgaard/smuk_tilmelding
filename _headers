@@ -1,5 +1,5 @@
 /admin.html
-  Basic-Auth: ${ADMIN_USERNAME} ${ADMIN_PASSWORD}
+  Basic-Auth: ${ADMIN_USERNAME}:${ADMIN_PASSWORD}
 
 /admin_bingo.html
-  Basic-Auth: ${ADMIN_USERNAME} ${ADMIN_PASSWORD}
+  Basic-Auth: ${ADMIN_USERNAME}:${ADMIN_PASSWORD}
