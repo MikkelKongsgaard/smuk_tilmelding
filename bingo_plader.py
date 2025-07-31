@@ -124,18 +124,49 @@ def generate_plates_silently(num_plates=1):
         plates.append(plate)
     return plates
 
+def generate_unique_plates(num_plates=1):
+    """Generate unique bingo plates - ensures no duplicates"""
+    plates = []
+    seen_plates = set()
+    attempts = 0
+    max_attempts = num_plates * 10  # Safety limit to prevent infinite loops
+    
+    print(f"Generating {num_plates} unique plates...")
+    
+    while len(plates) < num_plates and attempts < max_attempts:
+        plate = generate_bingo_plate()
+        attempts += 1
+        
+        # Convert plate to a tuple for hashing (to check uniqueness)
+        plate_tuple = tuple(tuple(row) for row in plate)
+        
+        if plate_tuple not in seen_plates:
+            seen_plates.add(plate_tuple)
+            plates.append(plate)
+            
+            # Progress indicator for large batches
+            if len(plates) % 50 == 0 or len(plates) == num_plates:
+                print(f"✓ Generated {len(plates)}/{num_plates} unique plates (attempts: {attempts})")
+        elif attempts % 1000 == 0:
+            print(f"  - Searching for unique plates... {len(plates)}/{num_plates} found (attempts: {attempts})")
+    
+    if len(plates) < num_plates:
+        print(f"⚠️  Warning: Only generated {len(plates)} unique plates out of {num_plates} requested")
+        print(f"   This may indicate the search space is getting exhausted after {attempts} attempts")
+    
+    return plates
+
 if __name__ == "__main__":
     # Generate and display bingo plates
-    print("🎯 Bingo Plate Generator")
+    print("🎯 Unique Bingo Plate Generator")
     print("=" * 60)
     
-    # Generate 200 plates
-    print("Generating 200 bingo plates...")
-    plates = generate_plates_silently(200)
+    # Generate 200 unique plates
+    plates = generate_unique_plates(400)
     
     # Save to JSON file
     save_plates_to_json(plates)
-    print("💾 200 plates saved to 'bingo_plates.json'")
+    print(f"💾 {len(plates)} unique plates saved to 'bingo_plates.json'")
     
     # Show sample of first 3 plates
     print("\n" + "=" * 60)
@@ -148,5 +179,5 @@ if __name__ == "__main__":
         total_numbers = np.count_nonzero(plates[i])
         print(f"Total numbers: {total_numbers}")
     
-    print(f"\n✅ All 200 plates generated successfully!")
+    print(f"\n✅ All {len(plates)} unique plates generated successfully!")
     print("📄 Open 'bingo_plates.json' to see all plates in JSON format")
