@@ -98,6 +98,22 @@
       border-left: 4px solid var(--smuk-green);
       border-radius: 8px;
     }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 2em;
+      padding: 0.6em 1.2em;
+      background: var(--smuk-green);
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+
+    .back-link:hover {
+      background: var(--smuk-dark);
+    }
   </style>
 </head>
 <body>
@@ -112,7 +128,7 @@
 
     <p class="success" id="successMsg">✔ Plade tildelt – du bliver omdirigeret!</p>
      <p>
-        <a href="index.html">← Tilbage til startside</a>
+        <a href="index.html" class="back-link">← Tilbage til startside</a>
     </p>
   </div>
 
