@@ -1,5 +1,5 @@
 /admin.html
-  Basic-Auth: ${ADMIN_USERNAME}:${ADMIN_PASSWORD}
+  Basic-Auth: Faellesskaberne2025:8660
 
 /admin_bingo.html
-  Basic-Auth: ${ADMIN_USERNAME}:${ADMIN_PASSWORD}
+  Basic-Auth: Faellesskaberne2025:8660
