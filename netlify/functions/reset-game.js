@@ -16,9 +16,18 @@ exports.handler = async () => {
           claimed_at = NULL
     `);
 
+    // Slet alle vindere (hvis tabellen eksisterer)
+    try {
+      await pool.query('DELETE FROM bingo_winners');
+      console.log('Winners table cleared');
+    } catch (winnersError) {
+      // Winners table doesn't exist yet, that's okay
+      console.log('Winners table not found (that\'s okay)');
+    }
+
     return {
       statusCode: 200,
-      body: JSON.stringify({ message: 'Game reset' }),
+      body: JSON.stringify({ message: 'Game reset - all called numbers, claimed plates, and winners cleared' }),
     };
   } catch (err) {
     console.error('Reset error:', err);

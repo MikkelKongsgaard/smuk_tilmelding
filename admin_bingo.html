@@ -87,6 +87,39 @@
             margin-top: 1rem;
             font-weight: bold;
         }
+
+        .winners-list {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            min-height: 40px;
+        }
+
+        .winner-entry {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem;
+            margin-bottom: 0.5rem;
+            background-color: var(--smuk-dust);
+            border-radius: 4px;
+            border-left: 4px solid var(--smuk-green);
+        }
+
+        .winner-entry:last-child {
+            margin-bottom: 0;
+        }
+
+        .winner-email {
+            font-weight: 600;
+        }
+
+        .winner-time {
+            font-size: 0.9em;
+            color: #666;
+        }
     </style>
 </head>
 
@@ -107,6 +140,20 @@
     <input type="email" id="checkEmail" placeholder="Email">
     <button onclick="checkPlate()">Tjek plade</button>
     <div id="checkResult" class="result"></div>
+
+    <hr>
+
+    <h2>Vindere</h2>
+    <div id="winnersSection">
+        <h3 style="color: var(--smuk-yellow);">🏆 Fuld plade (Bingo)</h3>
+        <div id="bingoWinners" class="winners-list">Ingen vindere endnu</div>
+        
+        <h3 style="color: var(--smuk-green);">🥈 2 rækker</h3>
+        <div id="twoRowWinners" class="winners-list">Ingen vindere endnu</div>
+        
+        <h3 style="color: #666;">🥉 1 række</h3>
+        <div id="oneRowWinners" class="winners-list">Ingen vindere endnu</div>
+    </div>
 
     <hr>
     <h2>Nulstil spil</h2>
@@ -165,15 +212,52 @@
 
         async function checkPlate() {
             const email = document.getElementById("checkEmail").value;
+            if (!email) return;
+            
             const res = await fetch('/.netlify/functions/check-plate-status?email=' + encodeURIComponent(email));
             const data = await res.json();
             document.getElementById("checkResult").textContent = data.result || data.error;
+            
+            // Reload winners after checking a plate
+            if (data.result && data.result.includes("vinder")) {
+                loadWinners();
+            }
+        }
+
+        async function loadWinners() {
+            try {
+                const res = await fetch('/.netlify/functions/get-winners');
+                const data = await res.json();
+                
+                displayWinners('bingoWinners', data.bingo || [], 'Fuld plade');
+                displayWinners('twoRowWinners', data.twoRows || [], '2 rækker');
+                displayWinners('oneRowWinners', data.oneRow || [], '1 række');
+            } catch (error) {
+                console.error('Fejl ved indlæsning af vindere:', error);
+            }
+        }
+
+        function displayWinners(containerId, winners, type) {
+            const container = document.getElementById(containerId);
+            
+            if (winners.length === 0) {
+                container.innerHTML = `<em>Ingen ${type.toLowerCase()} vindere endnu</em>`;
+                return;
+            }
+            
+            container.innerHTML = winners.map(winner => `
+                <div class="winner-entry">
+                    <span class="winner-email">${winner.email}</span>
+                    <span class="winner-time">${new Date(winner.timestamp).toLocaleString('da-DK')}</span>
+                </div>
+            `).join('');
         }
 
         loadCalledNumbers();
+        loadWinners(); // Load winners on page load
 
         async function resetGame() {
-            const confirmed = confirm("Er du sikker på, at du vil starte et nyt spil?");
+            const confirmed = confirm("Er du sikker på, at du vil starte et nyt spil? Dette vil slette alle udtrukne tal og vindere!");
             if (!confirmed) return;
 
             const res = await fetch('/.netlify/functions/reset-game', { method: 'POST' });
@@ -181,6 +265,7 @@
             if (res.ok) {
                 document.getElementById("resetStatus").textContent = "Spillet er nulstillet!";
                 loadCalledNumbers(); // opdater visning
+                loadWinners(); // opdater vindere
             } else {
                 document.getElementById("resetStatus").textContent = "Fejl under nulstilling.";
             }
