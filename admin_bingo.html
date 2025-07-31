@@ -258,6 +258,13 @@
         loadCalledNumbers();
         loadWinners(); // Load winners on page load
 
+        // Add Enter key support for adding numbers
+        document.getElementById('newNumber').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                submitNumber();
+            }
+        });
+
         async function resetGame() {
             const confirmed = confirm("Er du sikker på, at du vil starte et nyt spil? Dette vil slette alle udtrukne tal og vindere!");
             if (!confirmed) return;

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="da">
+
 <head>
   <meta charset="UTF-8">
   <title>Admin – Event Tilmeldinger</title>
@@ -10,29 +11,37 @@
       padding: 2rem;
       background: #f0f4f8;
     }
+
     h1 {
       color: #065f46;
     }
-    select, input {
+
+    select,
+    input {
       padding: 0.5rem;
       margin: 1rem 0;
       width: 100%;
       max-width: 400px;
     }
+
     table {
       width: 100%;
       border-collapse: collapse;
       background: white;
       margin-top: 1rem;
     }
-    th, td {
+
+    th,
+    td {
       padding: 0.75rem;
       border: 1px solid #ccc;
       text-align: left;
     }
+
     th {
       background: #e6f4ea;
     }
+
     button.delete-btn {
       background: #dc2626;
       color: white;
@@ -43,98 +52,100 @@
     }
   </style>
 </head>
+
 <body>
 
-<h1>📋 Admin – Event Tilmeldinger</h1>
+  <h1>📋 Admin – Event Tilmeldinger</h1>
 
-<label for="eventSelect">Vælg event:</label>
-<select id="eventSelect">
-  <option value="spikeball">Spikeball</option>
-  <option value="hoevdingebold">Høvdingebold</option>
-  <option value="smukraes">Smukræs</option>
-</select>
+  <label for="eventSelect">Vælg event:</label>
+  <select id="eventSelect">
+    <option value="spikeball">Spikeball</option>
+    <option value="hovdingebold">Høvdingebold</option>
+    <option value="smukraes">Smukræs</option>
+  </select>
 
-<input type="text" id="search" placeholder="Søg efter noget...">
+  <input type="text" id="search" placeholder="Søg efter noget...">
 
-<table id="tilmeldinger">
-  <thead>
-    <tr id="headerRow"></tr>
-  </thead>
-  <tbody></tbody>
-</table>
+  <table id="tilmeldinger">
+    <thead>
+      <tr id="headerRow"></tr>
+    </thead>
+    <tbody></tbody>
+  </table>
 
-<a href="index.html" class="back-button">← Tilbage til forsiden</a>
+  <a href="index.html" class="back-button">← Tilbage til forsiden</a>
 
-<script>
-const config = {
-  spikeball: {
-    columns: ["id", "team_name", "player_1", "player_2", "phone"],
-    endpoint: "/.netlify/functions/admin-spikeball"
-  },
-  hoevdingebold: {
-    columns: ["id", "team_name", "player_count", "phone"],
-    endpoint: "/.netlify/functions/admin-hovdingebold"
-  },
-  smukraes: {
-    columns: ["id", "team_name", "captain", "justification", "phone"],
-    endpoint: "/.netlify/functions/admin-smukraes"
-  }
-};
+  <script>
+    const config = {
+      spikeball: {
+        columns: ["id", "team_name", "player_1", "player_2", "phone_number"],
+        endpoint: "/.netlify/functions/admin-spikeball"
+      },
+      hovdingebold: {
+        columns: ["id", "team_name", "player_count", "phone"],
+        endpoint: "/.netlify/functions/admin-hovdingebold"
+      },
+      smukraes: {
+        columns: ["id", "holdnavn", "kontakt", "ekstrainfo"],
+        endpoint: "/.netlify/functions/admin-smukraes"
+      }
+    };
 
-const eventSelect = document.getElementById("eventSelect");
-const tbody = document.querySelector("tbody");
-const headerRow = document.getElementById("headerRow");
-const searchInput = document.getElementById("search");
+    const eventSelect = document.getElementById("eventSelect");
+    const tbody = document.querySelector("tbody");
+    const headerRow = document.getElementById("headerRow");
+    const searchInput = document.getElementById("search");
 
-async function loadData(eventKey) {
-  const { columns, endpoint } = config[eventKey];
+    async function loadData(eventKey) {
+      const { columns, endpoint } = config[eventKey];
 
-  const res = await fetch(endpoint);
-  const rows = await res.json();
+      const res = await fetch(endpoint);
+      const rows = await res.json();
 
-  // Sæt tabel-header
-  headerRow.innerHTML = columns.map(c => `<th>${c}</th>`).join("") + "<th>Slet</th>";
+      // Sæt tabel-header
+      headerRow.innerHTML = columns.map(c => `<th>${c}</th>`).join("") + "<th>Slet</th>";
 
-  // Sæt rækker
-  tbody.innerHTML = "";
-  rows.forEach(row => {
-    const tr = document.createElement("tr");
-    tr.dataset.id = row.id;
-    tr.innerHTML = columns.map(col => `<td>${row[col] || ""}</td>`).join("");
-    tr.innerHTML += `<td><button class="delete-btn" onclick="deleteRow('${eventKey}', ${row.id})">Slet</button></td>`;
-    tbody.appendChild(tr);
-  });
-}
+      // Sæt rækker
+      tbody.innerHTML = "";
+      rows.forEach(row => {
+        const tr = document.createElement("tr");
+        tr.dataset.id = row.id;
+        tr.innerHTML = columns.map(col => `<td>${row[col] || ""}</td>`).join("");
+        tr.innerHTML += `<td><button class="delete-btn" onclick="deleteRow('${eventKey}', ${row.id})">Slet</button></td>`;
+        tbody.appendChild(tr);
+      });
+    }
 
-async function deleteRow(eventKey, id) {
-  const endpoint = config[eventKey].endpoint;
-  if (!confirm("Er du sikker på, at du vil slette denne tilmelding?")) return;
+    async function deleteRow(eventKey, id) {
+      const endpoint = config[eventKey].endpoint;
+      if (!confirm("Er du sikker på, at du vil slette denne tilmelding?")) return;
 
-  const res = await fetch(endpoint, {
-    method: "DELETE",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ id })
-  });
+      const res = await fetch(endpoint, {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id })
+      });
 
-  if (res.ok) {
-    document.querySelector(`tr[data-id="${id}"]`)?.remove();
-  } else {
-    alert("Fejl ved sletning");
-  }
-}
+      if (res.ok) {
+        document.querySelector(`tr[data-id="${id}"]`)?.remove();
+      } else {
+        alert("Fejl ved sletning");
+      }
+    }
 
-searchInput.addEventListener("input", function () {
-  const q = this.value.toLowerCase();
-  document.querySelectorAll("tbody tr").forEach(tr => {
-    tr.style.display = tr.innerText.toLowerCase().includes(q) ? "" : "none";
-  });
-});
+    searchInput.addEventListener("input", function () {
+      const q = this.value.toLowerCase();
+      document.querySelectorAll("tbody tr").forEach(tr => {
+        tr.style.display = tr.innerText.toLowerCase().includes(q) ? "" : "none";
+      });
+    });
 
-eventSelect.addEventListener("change", () => loadData(eventSelect.value));
+    eventSelect.addEventListener("change", () => loadData(eventSelect.value));
 
-// Start med spikeball
-loadData("spikeball");
-</script>
+    // Start med spikeball
+    loadData("spikeball");
+  </script>
 
 </body>
+
 </html>

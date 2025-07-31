@@ -26,7 +26,7 @@ exports.handler = async (event) => {
         if (!id) return { statusCode: 400, body: 'ID mangler' };
 
         try {
-            await pool.query('DELETE FROM smukraes_entries WHERE id = $1', [id]);
+            await pool.query('DELETE FROM smukraes_signups WHERE id = $1', [id]);
             return { statusCode: 200, body: JSON.stringify({ success: true }) };
         } catch (err) {
             console.error('DELETE error', err);
