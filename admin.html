@@ -5,41 +5,126 @@
   <meta charset="UTF-8">
   <title>Admin – Event Tilmeldinger</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href="./fonts/Geomanist-Regular.otf" as="font" type="font/otf" crossorigin>
+  <link rel="preload" href="./fonts/Geomanist-Bold.otf" as="font" type="font/otf" crossorigin>
+  
   <style>
+    @font-face {
+      font-family: 'Geomanist';
+      src: url('./fonts/Geomanist-Regular.otf') format('opentype');
+      font-weight: 400;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Geomanist';
+      src: url('./fonts/Geomanist-Bold.otf') format('opentype');
+      font-weight: 700;
+      font-display: swap;
+    }
+
+    :root {
+      --smuk-green: #037D51;
+      --smuk-dust: #F1E1D6;
+      --smuk-dark: #2d3e2a;
+      --smuk-yellow: #facc15;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      padding: 2rem;
-      background: #f0f4f8;
+      font-family: 'Geomanist', sans-serif;
+      background-color: var(--smuk-dust);
+      background-image: url("assets/Gode_bunde_med_illustration_02.png");
+      background-repeat: no-repeat;
+      background-position: bottom center;
+      background-size: 100% auto;
+      margin: 0;
+      padding: 4em 2em;
+      min-height: 100vh;
+      color: var(--smuk-dark);
+      box-sizing: border-box;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
     }
 
     h1 {
-      color: #065f46;
+      font-size: 2.2em;
+      font-weight: 900;
+      color: var(--smuk-green);
+      margin-bottom: 1em;
+      text-align: center;
+    }
+
+    .controls {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
     }
 
     select,
     input {
-      padding: 0.5rem;
-      margin: 1rem 0;
-      width: 100%;
-      max-width: 400px;
+      font-family: 'Geomanist', sans-serif;
+      background: white;
+      color: var(--smuk-dark);
+      padding: 0.75em;
+      border-radius: 8px;
+      border: 2px solid var(--smuk-dust);
+      font-size: 1em;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      flex: 1;
+      min-width: 200px;
+    }
+
+    select:focus,
+    input:focus {
+      outline: none;
+      border-color: var(--smuk-green);
+      box-shadow: 0 0 0 3px rgba(3, 125, 81, 0.1);
+    }
+
+    .table-container {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
-      background: white;
-      margin-top: 1rem;
     }
 
     th,
     td {
-      padding: 0.75rem;
-      border: 1px solid #ccc;
+      padding: 1rem 0.75rem;
       text-align: left;
+      border-bottom: 1px solid var(--smuk-dust);
     }
 
     th {
-      background: #e6f4ea;
+      background: var(--smuk-green);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9em;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    tbody tr {
+      transition: background-color 0.2s ease;
+    }
+
+    tbody tr:hover {
+      background-color: rgba(3, 125, 81, 0.05);
+    }
+
+    tbody tr:last-child td {
+      border-bottom: none;
     }
 
     button.delete-btn {
@@ -47,33 +132,83 @@
       color: white;
       border: none;
       padding: 0.5rem 1rem;
-      border-radius: 4px;
+      border-radius: 6px;
       cursor: pointer;
+      font-family: 'Geomanist', sans-serif;
+      font-weight: 600;
+      font-size: 0.9em;
+      transition: all 0.3s ease;
+    }
+
+    button.delete-btn:hover {
+      background: #b91c1c;
+      transform: translateY(-1px);
+      box-shadow: 0 2px 8px rgba(220, 38, 38, 0.3);
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-top: 2em;
+      padding: 0.6em 1.2em;
+      background: var(--smuk-green);
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+
+    .back-button:hover {
+      background: var(--smuk-dark);
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 2em 1em;
+      }
+      
+      .controls {
+        flex-direction: column;
+      }
+      
+      .table-container {
+        overflow-x: auto;
+      }
+      
+      table {
+        min-width: 600px;
+      }
     }
   </style>
 </head>
 
 <body>
+  <div class="container">
 
-  <h1>📋 Admin – Event Tilmeldinger</h1>
+  <div class="container">
+    <h1>📋 Admin – Event Tilmeldinger</h1>
 
-  <label for="eventSelect">Vælg event:</label>
-  <select id="eventSelect">
-    <option value="spikeball">Spikeball</option>
-    <option value="hovdingebold">Høvdingebold</option>
-    <option value="smukraes">Smukræs</option>
-  </select>
+    <div class="controls">
+      <select id="eventSelect">
+        <option value="spikeball">Spikeball</option>
+        <option value="hovdingebold">Høvdingebold</option>
+        <option value="smukraes">Smukræs</option>
+      </select>
 
-  <input type="text" id="search" placeholder="Søg efter noget...">
+      <input type="text" id="search" placeholder="Søg efter noget...">
+    </div>
 
-  <table id="tilmeldinger">
-    <thead>
-      <tr id="headerRow"></tr>
-    </thead>
-    <tbody></tbody>
-  </table>
+    <div class="table-container">
+      <table id="tilmeldinger">
+        <thead>
+          <tr id="headerRow"></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
 
-  <a href="index.html" class="back-button">← Tilbage til forsiden</a>
+    <a href="index.html" class="back-button">← Tilbage til forsiden</a>
+  </div>
 
   <script>
     const config = {
