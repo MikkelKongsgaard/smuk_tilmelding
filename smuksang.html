@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <title>SMUKSANG – Sangtekster</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="./fonts/Geomanist-Regular.otf" as="font" type="font/otf" crossorigin>
+    <link rel="preload" href="./fonts/Geomanist-Bold.otf" as="font" type="font/otf" crossorigin>
+    <link rel="preload" href="assets/Gode_bunde_med_illustration_15.png" as="image">
+
+    <style>
+        @font-face {
+            font-family: 'Geomanist';
+            src: url('./fonts/Geomanist-Regular.otf') format('opentype');
+            font-weight: 400;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Geomanist';
+            src: url('./fonts/Geomanist-Bold.otf') format('opentype');
+            font-weight: 700;
+            font-display: swap;
+        }
+
+        :root {
+            --smuk-green: #037D51;
+            --smuk-dust: #F1E1D6;
+            --smuk-dark: #2d3e2a;
+            --smuk-yellow: #facc15;
+        }
+
+        body {
+            font-family: 'Geomanist', sans-serif;
+            background-color: var(--smuk-dust);
+            background-image: url("assets/Gode_bunde_med_illustration_15.png");
+            background-repeat: no-repeat;
+            background-position: bottom center;
+            background-size: 100% auto;
+            margin: 0;
+            padding: 4em 2em;
+            min-height: 100vh;
+            color: var(--smuk-dark);
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.2em;
+            font-weight: 900;
+            color: var(--smuk-green);
+            margin-bottom: 0.5em;
+        }
+
+        .intro {
+            font-size: 1.1em;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .search-container {
+            max-width: 500px;
+            margin: 0 auto 2rem auto;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.75em;
+            border-radius: 8px;
+            border: 2px solid var(--smuk-dust);
+            font-family: 'Geomanist', sans-serif;
+            font-size: 1em;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--smuk-green);
+            box-shadow: 0 0 0 3px rgba(3, 125, 81, 0.1);
+        }
+
+        .search-input::placeholder {
+            color: #999;
+        }
+
+        .no-results {
+            text-align: center;
+            color: #666;
+            font-size: 1.1em;
+            margin: 2rem 0;
+            display: none;
+        }
+
+        .songs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .song-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            border-left: 5px solid var(--smuk-yellow);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            text-align: left;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .song-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .song-card h2 {
+            margin-top: 0;
+            font-size: 1.3em;
+            font-weight: 700;
+            color: var(--smuk-green);
+            margin-bottom: 0.5em;
+        }
+
+        .song-card p {
+            margin: 0.5em 0;
+            line-height: 1.5;
+            color: #666;
+            font-style: italic;
+        }
+
+        .song-card a {
+            display: inline-block;
+            margin-top: 1em;
+            padding: 0.6em 1.2em;
+            background: var(--smuk-green);
+            color: white;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+
+        .song-card a:hover {
+            background: var(--smuk-dark);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 2em;
+            padding: 0.6em 1.2em;
+            background: var(--smuk-green);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: var(--smuk-dark);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 2em 1em;
+            }
+
+            .songs-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🎵 SMUKSANG</h1>
+        <p class="intro">Klik på en sang for at se sangteksten. Syng med på de kendte melodier!</p>
+
+        <div class="search-container">
+            <input type="text" id="searchInput" class="search-input" placeholder="🔍 Søg efter sang...">
+        </div>
+
+        <div class="no-results" id="noResults">
+            Ingen sange matcher din søgning. Prøv et andet søgeord.
+        </div>
+
+        <div class="songs-grid" id="songsGrid">
+            <div class="song-card">
+                <h2>🎵 Jeg Ka Rigtig Godt Li' Dig</h2>
+                <a href="assets/songs/Jeg Ka Rigtig Godt Li' Dig.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Fuck Dig</h2>
+                <a href="assets/songs/Fuck David.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Kendt mig en uge</h2>
+                <a href="assets/songs/Kendt mig en uge.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Stitches</h2>
+                <a href="assets/songs/Stitches.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Gav Det Et Skud</h2>
+                <a href="assets/songs/Gav Det Et Skud.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 I morgen er der også en dag</h2>
+                <a href="assets/songs/I morgen er der også en dag.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Barbie Girl</h2>
+                <a href="assets/songs/Barbie Girl.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Det Modsatte</h2>
+                <a href="assets/songs/Det Modsatte.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Kongen Af Danmark</h2>
+                <a href="assets/songs/Kongen Af Danmark.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Horsens</h2>
+                <a href="assets/songs/Horsens.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Godthåbsvej</h2>
+                <a href="assets/songs/Godthåbsvej.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 I Will Survive</h2>
+                <a href="assets/songs/I Will Survive.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Don't Leave</h2>
+                <a href="assets/songs/Don't Leave.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Nights with you</h2>
+                <a href="assets/songs/Nights with you.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Flammer Rammer</h2>
+                <a href="assets/songs/Flammer Rammer.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Jeg vil ha dig for dig selv</h2>
+                <a href="assets/songs/Jeg vil ha dig for dig selv.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Lucy</h2>
+                <a href="assets/songs/Lucy.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Frit Land</h2>
+                <a href="assets/songs/Frit Land.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Flyvende Faduma</h2>
+                <a href="assets/songs/Flyvende Faduma.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Kærester på månen</h2>
+                <a href="assets/songs/Kærester på månen.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Internetsangen</h2>
+                <a href="assets/songs/Internetsangen.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Irony</h2>
+                <a href="assets/songs/Irony.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 En Drøm Om Et Menneske</h2>
+                <a href="assets/songs/En Drøm Om Et Menneske.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Klip Klap Sandaler</h2>
+                <a href="assets/songs/Klip Klap Sandaler.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Ensom</h2>
+                <a href="assets/songs/Ensom.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Malene</h2>
+                <a href="assets/songs/Malene.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Falder</h2>
+                <a href="assets/songs/Falder.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Sig Du Ka Li Mig</h2>
+                <a href="assets/songs/Sig Du Ka Li Mig.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 You Belong With Me</h2>
+                <a href="assets/songs/You Belong With Me.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Sådan nogen som os</h2>
+                <a href="assets/songs/Sådan nogen som os.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Call Me Maybe</h2>
+                <a href="assets/songs/Call Me Maybe.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Drunk in the morning</h2>
+                <a href="assets/songs/Drunk in the morning.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Juice</h2>
+                <a href="assets/songs/Juice.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Fortabt Er Jeg Stadig</h2>
+                <a href="assets/songs/Fortabt Er Jeg Stadig.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Under din sne</h2>
+                <a href="assets/songs/Under din sne.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Hvor Skal Vi Sove I Nat</h2>
+                <a href="assets/songs/Hvor Skal Vi Sove I Nat.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Sommer I Europa</h2>
+                <a href="assets/songs/Sommer I Europa.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 I Had Some Help</h2>
+                <a href="assets/songs/I Had Some Help.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Nattely</h2>
+                <a href="assets/songs/Nattely.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Baghjul Nede I Touren</h2>
+                <a href="assets/songs/Baghjul Nede I Touren.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Good Riddance</h2>
+                <a href="assets/songs/Good Riddance.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Det Mig Der Står H...e og Banker På</h2>
+                <a href="assets/songs/Det Mig Der Står H...e og Banker På.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Overleve</h2>
+                <a href="assets/songs/Overleve.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Hope This Song Is For You</h2>
+                <a href="assets/songs/Hope This Song Is For You.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Emil</h2>
+                <a href="assets/songs/Emil.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Hold Back The River</h2>
+                <a href="assets/songs/Hold Back The River.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Perfect</h2>
+                <a href="assets/songs/Perfect.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Your Song</h2>
+                <a href="assets/songs/Your Song.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Beautiful</h2>
+                <a href="assets/songs/Beautiful.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Ik Gå Så Langt</h2>
+                <a href="assets/songs/Ik Gå Så Langt.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Radioactive</h2>
+                <a href="assets/songs/Radioactive.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Breakin Free</h2>
+                <a href="assets/songs/Breakin Free.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Smuk Som Et Stjerneskud</h2>
+                <a href="assets/songs/Smuk Som Et Stjerneskud.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 What Makes You Beautiful</h2>
+                <a href="assets/songs/What Makes You Beautiful.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Magi I luften</h2>
+                <a href="assets/songs/Magi I luften.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Danser med piger</h2>
+                <a href="assets/songs/Danser med piger.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Lyse Nætter</h2>
+                <a href="assets/songs/Lyse Nætter.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Overgir' Mig Langsomt</h2>
+                <a href="assets/songs/Overgir' Mig Langsomt.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Mest Ondt</h2>
+                <a href="assets/songs/Mest Ondt.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Uncover</h2>
+                <a href="assets/songs/Uncover.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Når Mænd Græder</h2>
+                <a href="assets/songs/Når Mænd Græder.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Drømmer Jeg</h2>
+                <a href="assets/songs/Drømmer Jeg.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Right Next to the Right One</h2>
+                <a href="assets/songs/Right Next to the Right One.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Lidt I Fem</h2>
+                <a href="assets/songs/Lidt I Fem.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Dancing On My Own</h2>
+                <a href="assets/songs/Dancing On My Own.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Danse I Månenskin</h2>
+                <a href="assets/songs/Danse I Månenskin.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Birds of a feather</h2>
+                <a href="assets/songs/Birds of a feather.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Texas Hold 'Em</h2>
+                <a href="assets/songs/Texas Hold 'Em.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Baby</h2>
+                <a href="assets/songs/Baby.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Don't Start Now</h2>
+                <a href="assets/songs/Don't Start Now.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Det kun vigtigt hvad det er</h2>
+                <a href="assets/songs/Det kun vigtigt hvad det er.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Kongens Have</h2>
+                <a href="assets/songs/Kongens Have.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Stop Believing</h2>
+                <a href="assets/songs/Stop Believing.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Den jeg elsker</h2>
+                <a href="assets/songs/Den jeg elsker.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Stay with Me</h2>
+                <a href="assets/songs/Stay with Me.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Flowers</h2>
+                <a href="assets/songs/Flowers.png" target="_blank">Se sangtekst</a>
+            </div>
+            <div class="song-card">
+                <h2>🎵 Elsker dig så meget</h2>
+                <a href="assets/songs/Elsker dig så meget.png" target="_blank">Se sangtekst</a>
+            </div>
+        </div>
+
+        <a href="index.html" class="back-link">← Tilbage til startside</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('searchInput');
+            const songsGrid = document.getElementById('songsGrid');
+            const noResults = document.getElementById('noResults');
+            const songCards = document.querySelectorAll('.song-card');
+
+            // Search function
+            function searchSongs() {
+                const searchTerm = searchInput.value.toLowerCase().trim();
+                let visibleCount = 0;
+
+                songCards.forEach(card => {
+                    const songTitle = card.querySelector('h2').textContent.toLowerCase();
+                    
+                    if (searchTerm === '' || songTitle.includes(searchTerm)) {
+                        card.style.display = 'block';
+                        visibleCount++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                // Show/hide no results message
+                if (visibleCount === 0 && searchTerm !== '') {
+                    noResults.style.display = 'block';
+                    songsGrid.style.display = 'none';
+                } else {
+                    noResults.style.display = 'none';
+                    songsGrid.style.display = 'grid';
+                }
+            }
+
+            // Add event listener for real-time search
+            searchInput.addEventListener('input', searchSongs);
+
+            // Clear search on page load
+            searchInput.value = '';
+        });
+    </script>
+</body>
+
+</html>
