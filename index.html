@@ -157,6 +157,17 @@
       background: var(--smuk-dark);
     }
 
+    .event-card a.disabled {
+      background: #ccc;
+      color: #666;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    .event-card a.disabled:hover {
+      background: #ccc;
+    }
+
     @media (max-width: 768px) {
       .event-card {
         width: 100%;
@@ -227,7 +238,8 @@
           <p><strong>Tid:</strong> 15:00–16:00</p>
           <p>Fællesskabsbingo under åben himmel – grin, gaver og god stemning!</p>
         </div>
-        <a href="bingo_bekræft.html">Få din plade</a>
+        <!-- <a href="bingo_bekræft.html">Få din plade</a> -->
+        <a href="#" class="disabled">Kommer snart</a>
       </div>
 
     </div>
