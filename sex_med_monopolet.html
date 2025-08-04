@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sex med Monopolet - Smukfest</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Send anonyme spørgsmål til Sex med Monopolet på Smukfest">
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="./fonts/Geomanist-Regular.otf" as="font" type="font/otf" crossorigin>
+    <link rel="preload" href="./fonts/Geomanist-Bold.otf" as="font" type="font/otf" crossorigin>
+    <link rel="preload" href="assets/Gode_bunde_med_illustration_02.png" as="image">
+
+    <!-- Geomanist font-face definitioner -->
+    <style>
+        @font-face {
+            font-family: 'Geomanist';
+            src: url('./fonts/Geomanist-Regular.otf') format('opentype');
+            font-weight: 400;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Geomanist';
+            src: url('./fonts/Geomanist-Medium.otf') format('opentype');
+            font-weight: 500;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Geomanist';
+            src: url('./fonts/Geomanist-Bold.otf') format('opentype');
+            font-weight: 700;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Geomanist';
+            src: url('./fonts/Geomanist-Black.otf') format('opentype');
+            font-weight: 900;
+            font-display: swap;
+        }
+
+        :root {
+            --smuk-green: #037D51;
+            --smuk-dust: #F1E1D6;
+            --smuk-dark: #2d3e2a;
+            --smuk-yellow: #facc15;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Geomanist', sans-serif;
+            font-weight: 400;
+            background-color: var(--smuk-dust);
+            /* background-image: url("assets/Gode_bunde_med_illustration_02.png"); */
+            background-repeat: no-repeat;
+            background-position: bottom left;
+            background-size: 50% auto;
+            padding: 4em 2em;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            color: var(--smuk-dark);
+        }
+
+        .content {
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.6em;
+            font-family: 'Geomanist', sans-serif;
+            font-weight: 900;
+            color: var(--smuk-green);
+            margin-bottom: 0.5em;
+        }
+
+        .intro {
+            font-size: 1.1em;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .form-container {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            border-left: 5px solid var(--smuk-green);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            color: var(--smuk-green);
+            margin-bottom: 0.5rem;
+            font-size: 1.1em;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e5e5e5;
+            border-radius: 8px;
+            font-family: 'Geomanist', sans-serif;
+            font-size: 1rem;
+            line-height: 1.5;
+            resize: vertical;
+            min-height: 120px;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: var(--smuk-green);
+        }
+
+        .submit-btn {
+            background: var(--smuk-green);
+            color: white;
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            font-family: 'Geomanist', sans-serif;
+            font-weight: 600;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background: var(--smuk-dark);
+        }
+
+        .submit-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .back-btn {
+            display: inline-block;
+            background: transparent;
+            color: var(--smuk-green);
+            border: 2px solid var(--smuk-green);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-family: 'Geomanist', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .back-btn:hover {
+            background: var(--smuk-green);
+            color: white;
+        }
+
+        .anonymous-notice {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.9em;
+            color: #6c757d;
+        }
+
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        .error-message {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 2em 1em;
+                background-size: 70% auto;
+            }
+
+            h1 {
+                font-size: 2.2em;
+            }
+
+            .form-container {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <h1>❓ Sex med Monopolet</h1>
+        <p class="intro">
+            Send dit anonyme spørgsmål til Sex med Monopolet! Alle spørgsmål er velkomne - fra det nysgerrige til det
+            komplekse.
+            Dit spørgsmål bliver behandlet helt anonymt.
+        </p>
+
+        <div class="form-container">
+            <div class="success-message" id="successMessage">
+                Tak for dit spørgsmål! Det er blevet sendt anonymt til Sex med Monopolet.
+            </div>
+
+            <div class="error-message" id="errorMessage">
+                Der opstod en fejl. Prøv venligst igen senere.
+            </div>
+
+            <form id="questionForm">
+                <div class="anonymous-notice">
+                    <strong>🔒 Anonymitet garanteret:</strong> Vi gemmer ingen personlige oplysninger sammen med dit
+                    spørgsmål.
+                </div>
+
+                <div class="form-group">
+                    <label for="question">Dit spørgsmål:</label>
+                    <textarea id="question" name="question"
+                        placeholder="Skriv dit spørgsmål her... Der er ingen dumme spørgsmål!" required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    Send spørgsmål anonymt
+                </button>
+            </form>
+        </div>
+
+        <div style="text-align: center;">
+            <a href="index.html" class="back-btn">← Tilbage til startside</a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('questionForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const submitBtn = document.getElementById('submitBtn');
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+            const questionField = document.getElementById('question');
+
+            // Hide previous messages
+            successMessage.style.display = 'none';
+            errorMessage.style.display = 'none';
+
+            // Disable submit button
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sender...';
+
+            try {
+                const formData = new FormData(this);
+
+                const response = await fetch('/.netlify/functions/submit-monopolet', {
+                    method: 'POST',
+                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                    body: new URLSearchParams(formData).toString()
+                });
+
+
+                if (response.ok) {
+                    successMessage.style.display = 'block';
+                    questionField.value = '';
+                    // Scroll to success message
+                    successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                } else {
+                    throw new Error('Network response was not ok');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                errorMessage.style.display = 'block';
+                errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } finally {
+                // Re-enable submit button
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send spørgsmål anonymt';
+            }
+        });
+
+        // Character counter (optional enhancement)
+        const questionField = document.getElementById('question');
+        questionField.addEventListener('input', function () {
+            // Optional: You could add a character counter here if needed
+        });
+    </script>
+</body>
+
+</html>

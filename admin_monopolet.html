@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin – Sex med Monopolet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href="./fonts/Geomanist-Regular.otf" as="font" type="font/otf" crossorigin>
+  <link rel="preload" href="./fonts/Geomanist-Bold.otf" as="font" type="font/otf" crossorigin>
+  <link rel="preload" href="assets/Gode_bunde_med_illustration_02.png" as="image">
+
+  <style>
+    @font-face {
+      font-family: 'Geomanist';
+      src: url('./fonts/Geomanist-Regular.otf') format('opentype');
+      font-weight: 400;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Geomanist';
+      src: url('./fonts/Geomanist-Medium.otf') format('opentype');
+      font-weight: 500;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Geomanist';
+      src: url('./fonts/Geomanist-Bold.otf') format('opentype');
+      font-weight: 700;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Geomanist';
+      src: url('./fonts/Geomanist-Black.otf') format('opentype');
+      font-weight: 900;
+      font-display: swap;
+    }
+
+    :root {
+      --smuk-green: #037D51;
+      --smuk-dust: #F1E1D6;
+      --smuk-dark: #2d3e2a;
+      --smuk-yellow: #facc15;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Geomanist', sans-serif;
+      font-weight: 400;
+      background-color: var(--smuk-dust);
+      /* background-image: url("assets/Gode_bunde_med_illustration_02.png"); */
+      background-repeat: no-repeat;
+      background-position: bottom left;
+      background-size: 50% auto;
+      padding: 2rem;
+      min-height: 100vh;
+      color: var(--smuk-dark);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 2.6em;
+      font-family: 'Geomanist', sans-serif;
+      font-weight: 900;
+      color: var(--smuk-green);
+      margin-bottom: 0.5em;
+      text-align: center;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #666;
+      margin-bottom: 2rem;
+      font-size: 1.1em;
+    }
+
+    .search-container {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      border-left: 5px solid var(--smuk-green);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      margin-bottom: 2rem;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 1rem;
+      border: 2px solid #e5e5e5;
+      border-radius: 8px;
+      font-family: 'Geomanist', sans-serif;
+      font-size: 1rem;
+      box-sizing: border-box;
+      transition: border-color 0.3s ease;
+    }
+
+    input[type="text"]:focus {
+      outline: none;
+      border-color: var(--smuk-green);
+    }
+
+    .table-container {
+      background: white;
+      border-radius: 12px;
+      border-left: 5px solid var(--smuk-green);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 1rem;
+      border-bottom: 1px solid #e5e5e5;
+      text-align: left;
+    }
+
+    th {
+      background: var(--smuk-green);
+      color: white;
+      font-family: 'Geomanist', sans-serif;
+      font-weight: 700;
+      font-size: 1em;
+    }
+
+    td {
+      font-family: 'Geomanist', sans-serif;
+      vertical-align: top;
+    }
+
+    td.question {
+      white-space: pre-wrap;
+      max-width: 400px;
+      word-wrap: break-word;
+      background: #f8f9fa;
+      border-left: 3px solid var(--smuk-yellow);
+      font-style: italic;
+    }
+
+    .delete-btn {
+      background: #dc2626;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-family: 'Geomanist', sans-serif;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+
+    .delete-btn:hover {
+      background: #b91c1c;
+    }
+
+    .checkmark {
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #ccc;
+      transition: color 0.3s ease;
+      user-select: none;
+    }
+
+    .checkmark:hover {
+      color: var(--smuk-green);
+    }
+
+    .checkmark.checked {
+      color: var(--smuk-green);
+    }
+
+    tr:hover {
+      background: #f8f9fa;
+    }
+
+    .back-btn {
+      display: inline-block;
+      background: transparent;
+      color: var(--smuk-green);
+      border: 2px solid var(--smuk-green);
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-family: 'Geomanist', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      margin-bottom: 2rem;
+    }
+
+    .back-btn:hover {
+      background: var(--smuk-green);
+      color: white;
+    }
+
+    .stats-container {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      border-left: 5px solid var(--smuk-yellow);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .stat-item {
+      padding: 1rem;
+      background: var(--smuk-dust);
+      border-radius: 8px;
+    }
+
+    .stat-number {
+      font-size: 2em;
+      font-weight: 700;
+      color: var(--smuk-green);
+    }
+
+    .stat-label {
+      font-size: 0.9em;
+      color: #666;
+      margin-top: 0.25rem;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 1rem;
+        background-size: 70% auto;
+      }
+
+      h1 {
+        font-size: 2.2em;
+      }
+
+      .search-container,
+      .table-container,
+      .stats-container {
+        padding: 1rem;
+      }
+
+      table {
+        font-size: 0.9em;
+      }
+
+      th, td {
+        padding: 0.75rem 0.5rem;
+      }
+
+      td.question {
+        max-width: 200px;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="admin.html" class="back-btn">← Tilbage til admin</a>
+    
+    <h1>❓ Sex med Monopolet</h1>
+    <p class="subtitle">Administrer indsendte anonyme spørgsmål</p>
+
+    <div class="stats-container">
+      <h3 style="margin-top: 0; color: var(--smuk-green); font-weight: 700;">Statistik</h3>
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number" id="totalQuestions">0</div>
+          <div class="stat-label">Totale spørgsmål</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" id="checkedQuestions">0</div>
+          <div class="stat-label">Markerede</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="search-container">
+      <label for="search" style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--smuk-green);">Søg i spørgsmål:</label>
+      <input type="text" id="search" placeholder="Indtast søgeord for at filtrere spørgsmål...">
+    </div>
+
+    <div class="table-container">
+      <table id="questionsTable">
+        <thead>
+          <tr>
+            <th style="width: 60px;">Status</th>
+            <th style="width: 80px;">ID</th>
+            <th>Spørgsmål</th>
+            <th style="width: 150px;">Tidspunkt</th>
+            <th style="width: 100px;">Handling</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    let questions = [];
+
+    async function loadQuestions() {
+      try {
+        const res = await fetch('/.netlify/functions/admin-monopolet');
+        questions = await res.json();
+        renderTable();
+        updateStats();
+      } catch (err) {
+        alert("Kunne ikke hente spørgsmål.");
+        console.error(err);
+      }
+    }
+
+    function renderTable() {
+      const q = document.getElementById("search").value.toLowerCase();
+      const tbody = document.querySelector('tbody');
+      tbody.innerHTML = "";
+
+      const filteredQuestions = questions.filter(row => 
+        row.question.toLowerCase().includes(q)
+      );
+
+      if (filteredQuestions.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="5" style="text-align: center; padding: 2rem; color: #666; font-style: italic;">
+              ${questions.length === 0 ? 'Ingen spørgsmål endnu' : 'Ingen spørgsmål matcher din søgning'}
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      filteredQuestions.forEach(row => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td style="text-align: center;">
+            <span class="checkmark" onclick="toggleCheck(this)" title="Marker som læst/behandlet">✓</span>
+          </td>
+          <td style="font-weight: 600; color: var(--smuk-green);">#${row.id}</td>
+          <td class="question">${escapeHtml(row.question)}</td>
+          <td style="font-size: 0.9em; color: #666;">${new Date(row.submitted_at).toLocaleString('da-DK')}</td>
+          <td><button class="delete-btn" onclick="deleteQuestion(${row.id})" title="Slet spørgsmål permanent">Slet</button></td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function toggleCheck(el) {
+      el.classList.toggle("checked");
+      updateStats();
+    }
+
+    function updateStats() {
+      const totalQuestions = questions.length;
+      const checkedQuestions = document.querySelectorAll('.checkmark.checked').length;
+      
+      document.getElementById('totalQuestions').textContent = totalQuestions;
+      document.getElementById('checkedQuestions').textContent = checkedQuestions;
+    }
+
+    async function deleteQuestion(id) {
+      if (!confirm("Er du sikker på, at du vil slette dette spørgsmål permanent?\n\nDenne handling kan ikke fortrydes.")) return;
+      
+      try {
+        const res = await fetch('/.netlify/functions/admin-monopolet', {
+          method: 'DELETE',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ id })
+        });
+
+        if (res.ok) {
+          questions = questions.filter(q => q.id !== id);
+          renderTable();
+          updateStats();
+          
+          // Show success feedback
+          const container = document.querySelector('.container');
+          const successMsg = document.createElement('div');
+          successMsg.style.cssText = `
+            background: #d4edda; 
+            color: #155724; 
+            padding: 1rem; 
+            border-radius: 8px; 
+            margin: 1rem 0; 
+            text-align: center;
+            border-left: 4px solid #28a745;
+          `;
+          successMsg.textContent = 'Spørgsmål blev slettet succesfuldt';
+          container.insertBefore(successMsg, document.querySelector('.stats-container'));
+          
+          setTimeout(() => successMsg.remove(), 3000);
+        } else {
+          alert("Kunne ikke slette spørgsmålet. Prøv igen senere.");
+        }
+      } catch (err) {
+        console.error(err);
+        alert("Der opstod en netværksfejl ved sletning. Prøv igen senere.");
+      }
+    }
+
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    // Add search functionality with debouncing
+    let searchTimeout;
+    document.getElementById("search").addEventListener("input", () => {
+      clearTimeout(searchTimeout);
+      searchTimeout = setTimeout(renderTable, 300);
+    });
+
+    // Initial load
+    loadQuestions();
+  </script>
+</body>
+</html>
